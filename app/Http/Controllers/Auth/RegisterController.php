@@ -73,7 +73,7 @@ class RegisterController extends Controller
     {
         //引数 $data から name='image'を取得(アップロードするファイル情報)
         $imageFile = $data['image'];
-        $imageFile = $data['image2'];
+        // $imageFile = $data['image2'];
 
         $list = FileUploadServices::fileUpload($imageFile);
 
@@ -94,7 +94,7 @@ class RegisterController extends Controller
             'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
             'img_name' => $fileNameToStore,
-            'img_name2' => $fileNameToStore,
+            // 'img_name2' => $fileNameToStore,
         ]);
     }
 }
