@@ -10,7 +10,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-// use Intervention\Image\Facades\Image;
+use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices; //拡張子を判別するファイル
 use App\Services\FileUploadServices;
 
