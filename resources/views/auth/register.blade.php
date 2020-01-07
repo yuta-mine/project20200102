@@ -14,16 +14,16 @@
                 <i class="fas fa-camera fa-3x"></i>
                 <input type="file" id="file_photo" name="image">
             </label>
-            <label for="file_photo" class="rounded-circle userProfileImg">
+            <!-- <label for="file_photo" class="rounded-circle userProfileImg">
                 <div class="userProfileImg_description">画像をアップロード</div>
                 <i class="fas fa-camera fa-3x"></i>
                 <input type="file" id="file_photo" name="image2">
-            </label>
+            </label> -->
             <div class="userImgPreview" id="userImgPreview">
                 <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
                 <p class="userImgPreview_text">画像をアップロード済み</p>
-                <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
-                <p class="userImgPreview_text">画像をアップロード済み</p>
+                <!-- <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
+                <p class="userImgPreview_text">画像をアップロード済み</p> -->
             </div>
 
 
