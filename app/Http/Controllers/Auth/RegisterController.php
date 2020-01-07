@@ -10,7 +10,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Facades\Image;
+// use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices; //拡張子を判別するファイル
 use App\Services\FileUploadServices;
 
@@ -71,21 +71,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //引数 $data から name='image'を取得(アップロードするファイル情報)
-        $imageFile = $data['image'];
-        // $imageFile = $data['image2'];
+        // //引数 $data から name='image'を取得(アップロードするファイル情報)
+        // $imageFile = $data['image'];
+        // // $imageFile = $data['image2'];
 
-        $list = FileUploadServices::fileUpload($imageFile);
+        // $list = FileUploadServices::fileUpload($imageFile);
 
-        list($extension, $fileNameToStore, $fileData) = $list;
+        // list($extension, $fileNameToStore, $fileData) = $list;
 
-        $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
+        // $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
 
-        //画像アップロード(Imageクラス makeメソッドを使用)
-        $image = Image::make($data_url);
+        // //画像アップロード(Imageクラス makeメソッドを使用)
+        // $image = Image::make($data_url);
 
-        //画像を横400px, 縦400pxにリサイズし保存
-        $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+        // //画像を横400px, 縦400pxにリサイズし保存
+        // $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
         return User::create([
             'name' => $data['name'],
@@ -93,7 +93,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
-            'img_name' => $fileNameToStore,
+            // 'img_name' => $fileNameToStore,
             // 'img_name2' => $fileNameToStore,
         ]);
     }
