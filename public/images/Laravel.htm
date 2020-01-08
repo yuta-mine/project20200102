@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://project20200102.test/home -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="YMqVFTVp5cTqJXJLtjvknF4wdMNnVeJBH8WgyVSy">
+
+    <title>Laravel</title>
+
+    <!-- Styles -->
+    <link href="./Laravel_files/home.css" rel="stylesheet">
+    <!-- <link href="http://project20200102.test/scss/jTinder.scss" rel="stylesheet"> -->
+    <style>
+        /* html,
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        } */
+
+        /* Wrapper with padding */
+        /* .wrap {
+            height: 300px;
+            padding: 5%;
+        } */
+
+        /* tinderslide */
+        /* #tinderslide {
+            position: relative;
+            background: #fff;
+            width: 90vw;
+            height: 70vh;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #tinderslide ul {
+            margin: 0;
+            position: relative;
+            display: block;
+            height: 100%;
+        }
+
+        #tinderslide ul>li {
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            left: 0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 10px 10px 10px;
+            background: #eee;
+            font-size: 24px;
+            color: #000;
+            border: 1px solid #fff;
+            border: 1px solid #dfdfdf;
+            border: 1px solid rgba(96, 96, 96, 0.2);
+            -webkit-transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+            transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        #tinderslide ul>li .userName {
+            position: absolute;
+            bottom: 5px;
+            color: #000;
+        }
+
+        #tinderslide ul>li img {
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        #tinderslide .noUser {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+            font-size: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #tinderslide .noUser.is-active {
+            display: block;
+        }
+
+        /* Image text */
+
+        /* #tinderslide li h2 {
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 100%;
+            text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Image rotation */
+
+        /* #tinderslide li.pane1 {
+            -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+        }
+
+        #tinderslide li.pane2 {
+            -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+        } */
+
+        /* Like & dislike badge images */
+
+        /* #tinderslide .like,
+        #tinderslide .dislike {
+            background: url("/images/liked.png") no-repeat scroll 0 0;
+            opacity: 0;
+            height: 80px;
+            position: absolute;
+            width: 170px;
+            left: 45px;
+            top: 40px;
+            z-index: 1;
+            overflow: hidden;
+            -webkit-transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+            transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        #tinderslide .dislike {
+            right: 45px;
+            left: auto;
+            background: url("/images/nope.png") no-repeat scroll 0 0;
+        } */
+
+        /* Image container */
+
+        /* #tinderslide .img {
+            height: 90%;
+            width: 100%;
+            margin-bottom: 5px;
+            position: relative;
+            -webkit-transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+            transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+            overflow: hidden;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+            -webkit-transform-style: preserve-3d;
+        } */
+
+        /* Action - buttons */
+
+        /* .actions {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            width: 200px;
+            margin: 15px auto;
+        }
+
+        .actions.is-none {
+            display: none;
+        } */
+
+        /* .actions div {
+            position: relative;
+            display: inline-block;
+            margin-right: -4px;
+        }
+
+        .actions a {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            background-color: #f7f7f7;
+            background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
+            width: 80px;
+            height: 80px;
+            position: relative;
+            text-align: center;
+            line-height: 144px;
+            border-radius: 50%;
+            outline: none;
+            box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+        } */
+
+        /* .actions a.dislike {
+            color: #eb5f5f;
+        }
+
+        .actions a.like {
+            color: #e07474;
+        }
+
+        .actions a:hover {
+            text-decoration: none;
+            color: #555;
+            background: #f5f5f5;
+        } */
+
+
+        /* jTinder status text */
+
+        /* #status {
+            text-align: center;
+            font-size: 18px;
+            font-family: arial;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .topPage .nav {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 100vw;
+            max-width: 610px;
+            margin: 0 auto;
+        }
+
+        .topPage .nav>ul {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .topPage .nav>ul>li {
+            list-style: none;
+        }
+
+        .topPage .nav>ul>li.personIcon i {
+            color: #dccbcb;
+        }
+
+        .topPage .nav>ul>li.appIcon>a {
+            width: 40px;
+            display: inline-block;
+        }
+
+        .topPage .nav>ul>li.appIcon>a>img {
+            width: 100%;
+        } */
+
+        /* .topPage .nav>ul>li.messageIcon i {
+            color: #dccbcb;
+        } */
+    </style>
+
+</head>
+
+<body class="vsc-initialized">
+
+
+    <div class="topPage">
+        <nav class="nav">
+            <ul>
+                <li class="personIcon">
+                    <a href="http://project20200102.test/users/show/1"><i class="fas fa-user fa-2x">aa</i></a></li>
+                <li class="appIcon"><a href="http://project20200102.test/home"><img src="./Laravel_files/techpit-match-icon.png"></a></li>
+            </ul>
+        </nav>
+        <div id="tinderslide">
+            <ul>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="1">
+                    <!-- 名前 -->
+                    <div class="userName">minede</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/saved_resource">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro"></div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/sample.jpg"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="2">
+                    <!-- 名前 -->
+                    <div class="userName">yuko</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/ps4controller_1578188636.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">vrswed</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="3">
+                    <!-- 名前 -->
+                    <div class="userName">aaa</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/ps4controller_1578188725.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">vsvbreavbe</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="4">
+                    <!-- 名前 -->
+                    <div class="userName">bbbb</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/ps4controller_1578190404.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">vsdz</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="5">
+                    <!-- 名前 -->
+                    <div class="userName">ジョブズ</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/sample001.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">ジョブズです</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/sample002.jpg"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="6">
+                    <!-- 名前 -->
+                    <div class="userName">ザッカーバーグ</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/sample002.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">ザッカーバーグです</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="7">
+                    <!-- 名前 -->
+                    <div class="userName">ジェフペゾフ</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/sample003.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">ジェフですです</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="8">
+                    <!-- 名前 -->
+                    <div class="userName">イーロン</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/sample004.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">イーロンです</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/sample002.jpg"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="9">
+                    <!-- 名前 -->
+                    <div class="userName">333</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/ps4controller_1578373985.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">csvd szx</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="10">
+                    <!-- 名前 -->
+                    <div class="userName">yuyu</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/ps4controller_1578374927.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">yuyu</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="11">
+                    <!-- 名前 -->
+                    <div class="userName">tanaka</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/thit-htoo-zaw-R2alAK_AYc0-unsplash_1578383273.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">tanakadesu</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+                <li data-user_id="12">
+                    <!-- 名前 -->
+                    <div class="userName">keiko</div>
+                    <!-- 年齢 -->
+                    <div class="userName"></div>
+                    <!-- 写真 -->
+                    <img src="./Laravel_files/ps4controller_1578385325.jpg">
+                    <!-- <img src=""> -->
+                    <!-- 自己紹介 -->
+                    <div class="selfintro">keiko1234</div>
+                    <!-- 距離 -->
+                    <!-- <div class="userName"></div> -->
+
+                    <!-- <img src="/storage/images/"> -->
+                    <div class="like">
+                    </div>
+                    <div class="dislike">
+                    </div>
+                </li>
+                            </ul>
+            <div class="noUser">近くにお相手がいません。</div>
+        </div>
+        <div class="actions" id="actionBtnArea">
+            <a href="http://project20200102.test/home#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
+            <a href="http://project20200102.test/home#" class="like"><i class="fas fa-heart fa-2x"></i></a>
+        </div>
+    </div>
+    <!--  -->
+
+    <!-- Scripts -->
+    <script src="./Laravel_files/app.js"></script>
+
+
+</body></html>
