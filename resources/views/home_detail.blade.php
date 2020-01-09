@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
     <div class="topPage">
         <nav class="nav">
             <ul>
@@ -36,8 +37,12 @@
                     <div class="userName">{{ $user->name }}</div>
                     <!-- 年齢 -->
                     <!-- <div class="userage">{{ $user->age }}</div> -->
-                    <!-- 距離 -->
+                    <!-- 位置情報 -->
                     <!-- <div class="userdistance">{{ $user->distance }}</div> -->
+                    <!-- 趣味 -->
+                    <!-- <div class="hobby">{{ $user->hobby }}</div> -->
+                    <!-- 学校 -->
+                    <!-- <div class="school">{{ $user->school }}</div> -->
                     <!-- 自己紹介 -->
                     <div class="selfintro">{{ $user->self_introduction }}</div>
 
@@ -49,14 +54,12 @@
             <div class="noUser">近くにお相手がいません。</div>
         </div>
         <div class="actions" id="actionBtnArea">
-            <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
-            <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>NOPE</a>
-            <!-- <a href="#" class="superlike"><i class="fas fa-times fa-2x"></i></a> -->
-            <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>LIKE</a>
-            <!-- 詳細確認ボタン -->
-            <a href="home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a>
+            <a href="#" class="back"><i class="fas fa-times fa-2x"></i></a>
+            <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
+            <a href="#" class="superlike"><i class="fas fa-times fa-2x"></i></a>
+            <a href="#" class="like"><i class="fas fa-heart fa-2x"></i></a>
+            <a href="home_detail.blade.php" class="detail"><i class="fas fa-times fa-2x"></i></a>
         </div>
-
     </div>
     <!-- @section('content') -->
     <!-- @yield('content') --> -->
