@@ -1,0 +1,174 @@
+/* .photo-blocks{
+    display: flex;
+    justify-content: space-between;
+} */
+
+.photo-block {
+    width:28%;
+    /* hは labelのpaddingのところで調整 */
+    /* ほんとはここでhを指定すべき */
+} 
+
+.file {
+    height: auto;
+    border-radius: 10px;
+}
+
+.files label {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -2px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 60px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.files input:focus{     
+    outline: 2px dashed #92b0b3;  
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; 
+    border:1px solid #92b0b3;
+ }
+
+.files{ 
+    position:relative
+}
+
+.files:after {  
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    right: 0;
+    height: 100%;
+    content: "";
+    background-size: cover;
+    /* background-image: url(https://rr.img.naver.jp/mig?src=http%3A%2F%2Fimgcc.naver.jp%2Fkaze%2Fmission%2FUSER%2F20150730%2F26%2F2470876%2F19%2F423x558xec040783398fa44c15108f00.jpg%2F300%2F600&twidth=300&theight=600&qlt=80&res_format=jpg&op=r); */
+    /* background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png); */
+    /* background-image: url(https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg); */
+    /* upload画像はここにセット */
+    display: block;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.color input{ 
+    background-color:#f1f1f1;
+}
+
+.files:before {
+    position: absolute;
+    bottom: 10px;
+    left: 0;  
+    pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    /* content: " or drag it here. "; */
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/*  profile-edit*/
+
+.tinder-color {
+    background: linear-gradient(90deg,#FE2D7B, #FF7655);
+}
+
+.add-media-button {
+    color: white;
+    text-decoration: none;
+}
+
+.control-label {
+    font-size: 16px;
+    font-weight: bolder;
+    padding-left: 9px;
+    color:rgb(83, 83, 83);
+}
+
+.item {width:25%; height:80px;}
+.item.w2 {width:50%;}
+.item.h2 {height:160px;}
+
+/* checkbox */
+
+#smartPhoto label {
+    margin-bottom: 0px;
+}
+
+input {
+  display: none;
+}
+input+label,
+input+label::before,
+input+label::after {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+input+label {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+input+label::before {
+  display: block;
+  /* content: attr(data-off-label); */
+  /* ここでlabelのdata-off-labelの値を取ってきてるみたい */
+  position: absolute;
+  top: 14px;
+  right: 7px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+input+label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+input:checked+label::before {
+  /* content: attr(data-on-label); */
+  left: 7px;
+  right: auto;
+  color: #fff;
+}
+input:checked+label::after {
+  left: 22px;
+  background-color: #f7f7f7;
+}
+
+#demo01+label {
+  background-color: #eee;
+}
+#demo01+label::before {
+  color: #aaa;
+}
+#demo01:checked+label {
+  background-color: #FE2D7B;
+}
+#demo01:checked+label::before {
+  color: #fff;
+}
