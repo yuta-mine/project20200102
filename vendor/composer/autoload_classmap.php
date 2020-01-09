@@ -27,6 +27,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\ProfileRequest' => $baseDir . '/app/Http/Requests/ProfileRequest.php',
     'App\\Like_table' => $baseDir . '/app/Like_table.php',
+    'App\\Match_table' => $baseDir . '/app/Match_table.php',
     'App\\Messages' => $baseDir . '/app/Messages.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

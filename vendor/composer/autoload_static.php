@@ -453,6 +453,7 @@ class ComposerStaticInitcb0a8aa37c97ed157874e3a7dbb23bb3
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\ProfileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileRequest.php',
         'App\\Like_table' => __DIR__ . '/../..' . '/app/Like_table.php',
+        'App\\Match_table' => __DIR__ . '/../..' . '/app/Match_table.php',
         'App\\Messages' => __DIR__ . '/../..' . '/app/Messages.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
