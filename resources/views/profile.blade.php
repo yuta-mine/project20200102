@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
-
-<head>
-    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
-</head>
+@push('css')
+    <link href="{{ asset('css/user.css') }}" rel="stylesheet">
+@endpush
 
 <div class="panel-body">
     <!-- バリデーションエラーの表⽰に使⽤するエラーファイル-->
@@ -11,12 +10,13 @@
     <!-- タスク登録フォーム -->
     <div class="form-group">
 
-        <div>notvue</div>
+        <div>NOT Vue.js</div>
         <div>{{$user->name}}</div>
         <div class="user-info arc">
             <div class="top-img-area mx-auto">
                 <!-- <img src="{{$user->profile_img_url}}" alt=""> -->
                 <img class="top-img img-thumbnail rounded-circle img-responsive full-width" src=" https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" alt="">
+                <img class="top-img img-thumbnail rounded-circle img-responsive full-width" src="/storage/images/{{$user -> img_name}}" alt="">
             </div>
             <div id="bio" class="bio">
                 <span class="name">{{ $user->name }}</span>

@@ -6,7 +6,7 @@
     <nav class="nav">
         <ul>
             <li class="personIcon">
-                <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">aa</i></a></li>
+                <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">profile</i></a></li>
             <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
         </ul>
     </nav>

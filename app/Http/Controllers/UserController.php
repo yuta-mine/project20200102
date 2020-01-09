@@ -19,7 +19,8 @@ class UserController extends Controller
 
         // dd($user); //
 
-        return view('users.show', compact('user'));
+        //return view('users.show', compact('user'));
+        return view('profile', compact('user'));
     }
 
     public function edit($id)
