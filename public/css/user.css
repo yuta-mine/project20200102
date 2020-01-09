@@ -1,0 +1,178 @@
+body {
+    background-color: #F6F7FA
+}
+
+.infotext {
+    color: #a3a3a3;
+    text-align: center;
+    margin:10px 0;
+
+}
+
+.panel-body{
+    width: 100%;
+}
+
+a {
+    color: rgb(73, 73, 73);
+    text-decoration : none;
+}
+
+.user-info {
+    margin-bottom:30px;
+}
+
+.top-img-area {
+    position: relative;
+    width: 130px;
+    height: 130px;
+}
+.top-img-area:before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+}
+.top-img-area img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.bio {
+    text-align: center;
+}
+.bio span {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.user-menu {
+    position: relative;
+    height: 167px;
+    width: 100%;
+}
+
+.arc {
+    border-bottom: 1px solid #d4d4d4;
+    border-bottom-right-radius: 200px 70px;
+    border-bottom-left-radius: 200px 70px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);;
+    /* min-height: 300px; */
+    /* border-bottom-right-radius: 1000px 300px;
+    border-bottom-left-radius: 1000px 300px;
+    margin-left: -50px;
+    margin-right: -50px;
+    padding-left: 50px;
+    padding-right: 50px; */
+
+}
+
+.icon {
+    font-size: 30px;
+    border: 1px solid #d4d4d4;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.icon-block {
+    position: relative;
+    margin: 0 28px;
+}
+
+.icon-block a{
+    justify-content: center;
+    display: flex;
+}
+
+.icon-block p{
+    text-align: center;
+    font-size: 13px;
+}
+
+
+.fa-plus-circle {
+    font-size:16px;
+    position: absolute;
+    bottom:37px;
+    right:28px;
+    z-index: 1;
+    border-radius: 50%;
+    background: #fff;
+}
+
+#add_media {
+    position: absolute;
+    top: 40px;
+    left: 25%;
+}
+
+.carousel-item {
+    text-align: center;
+}
+
+.carousel-indicators {
+    position: relative;
+}
+.carousel-indicators li {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.tinder-button-area {
+    margin-top: 30px;
+}
+
+.button {
+    display:block;
+    margin:0 auto;
+    text-align: center;
+    width: 200px;
+    border:1px solid #d4d4d4;
+    border-radius: 50px;
+    padding: 10px 20px;
+}
+
+/* formスタイル*/
+
+.form-primary {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin:20px 0;
+}
+
+.form-control {
+    /* height: calc(1.6em + 0.75rem + 14px); */
+    height: 100%;
+    border: 1px solid #F6F7FA;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+#app > .form-control{
+    height: calc(1.6em + 0.75rem + 24px);
+}
+
+
+
+
+/* interest */
+
+
+.interest-item {
+    text-align: center;
+    border: 1px solid #d4d4d4;
+    border-radius: 50px;
+    padding: 2px 12px;
+    margin: 2px 3px;
+}
+
+
+
