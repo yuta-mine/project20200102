@@ -1,0 +1,122 @@
+.card {
+    margin: 12px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+.form-primary {
+    margin:0;
+}
+
+h2 {
+    font-size: 16px;
+    padding-left:10px;
+    color: rgb(95, 95, 95);
+}
+
+.setting-block {
+    margin:20px 0;
+}
+
+.fa-angle-right {
+    color: rgb(201, 201, 201);
+}
+
+.form-item {
+    margin: 0 10px;
+}
+
+input[type=range] {
+    -webkit-appearance:none;
+}
+
+input[type=range]::-webkit-slider-thumb{ 
+    -webkit-appearance:none;
+}
+
+.vue-slider-dot-handle {
+    width:26px;
+    height:26px;
+    position: absolute;
+    bottom: -6px;
+}
+
+.vue-slider-process {
+    background-color: #FE2D7B;
+}
+
+/* checkbox */
+
+#smartPhoto label {
+    margin-bottom: 0px;
+}
+
+input {
+  display: none;
+}
+input+label,
+input+label::before,
+input+label::after {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+input+label {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+input+label::before {
+  display: block;
+  /* content: attr(data-off-label); */
+  /* ここでlabelのdata-off-labelの値を取ってきてるみたい */
+  position: absolute;
+  top: 14px;
+  right: 7px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+input+label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+input:checked+label::before {
+  /* content: attr(data-on-label); */
+  left: 7px;
+  right: auto;
+  color: #fff;
+}
+input:checked+label::after {
+  left: 22px;
+  background-color: #f7f7f7;
+}
+
+#demo01+label {
+  background-color: #eee;
+}
+#demo01+label::before {
+  color: #aaa;
+}
+#demo01:checked+label {
+  background-color: #FE2D7B;
+}
+#demo01:checked+label::before {
+  color: #fff;
+}
