@@ -2,8 +2,8 @@
 @section('content')
 
 @push('css')
-    <link href="{{ asset('css/user.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/profileedit.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/profileedit.css') }}" rel="stylesheet">
 @endpush
 
 <div class="panel-body">

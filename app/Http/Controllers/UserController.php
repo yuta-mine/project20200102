@@ -23,6 +23,13 @@ class UserController extends Controller
         return view('profile', compact('user'));
     }
 
+    // maru 追加 
+    public function setting($id)
+    {
+        $user = User::findorFail($id); //
+        return view('users.setting', compact('user'));
+    }
+
     public function edit($id)
     {
         $user = User::findorFail($id);

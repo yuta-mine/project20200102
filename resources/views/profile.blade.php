@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @push('css')
-<link href="{{ asset('css/user.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
 @endpush
 
 <div class="panel-body">
@@ -38,7 +38,7 @@
                         </a>
                         <p>設定</p>
                     </div>
-                    <form id="setting_form" action="" method="GET" style="display: none">
+                    <form id="setting_form" action="{{ route('users.setting', $user->id) }}" method="GET" style="display: none">
                     </form>
 
                     <div id="edit_profile" class="icon-block">
