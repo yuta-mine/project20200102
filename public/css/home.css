@@ -75,15 +75,6 @@
             font-size: 18px;
         }
 
-        .detail {
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            color: white;
-            bottom:10px;
-            padding-right:8px;
-        }
-
         #tinderslide ul>li img { 
             position: relative;
             left: 50%;
@@ -208,8 +199,6 @@
             justify-content: center;
             background-color: #f7f7f7;
             background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
-            width: 80px;
-            height: 80px;
             position: relative;
             text-align: center;
             line-height: 144px;
@@ -239,6 +228,11 @@
         }
 
         .actions a.boost {
+            width: 40px;
+            height: 40px;
+        }
+
+        .actions a.detail {
             width: 40px;
             height: 40px;
         }

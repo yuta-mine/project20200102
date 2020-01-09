@@ -38,8 +38,12 @@
                     <div class="userName">{{ $user->name }}</div>
                     <!-- 年齢 -->
                     <!-- <div class="userage">{{ $user->age }}</div> -->
-                    <!-- 距離 -->
+                    <!-- 位置情報 -->
                     <!-- <div class="userdistance">{{ $user->distance }}</div> -->
+                    <!-- 趣味 -->
+                    <!-- <div class="hobby">{{ $user->hobby }}</div> -->
+                    <!-- 学校 -->
+                    <!-- <div class="school">{{ $user->school }}</div> -->
                     <!-- 自己紹介 -->
                     <div class="selfintro">{{ $user->self_introduction }}</div>
 
@@ -55,7 +59,7 @@
             <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
             <a href="#" class="superlike"><i class="fas fa-times fa-2x"></i></a>
             <a href="#" class="like"><i class="fas fa-heart fa-2x"></i></a>
-            <a href="#" class="boost"><i class="fas fa-times fa-2x"></i></a>
+            <a href="home_detail.blade.php" class="detail"><i class="fas fa-times fa-2x"></i></a>
         </div>
     </div>
     <!-- @section('content') -->

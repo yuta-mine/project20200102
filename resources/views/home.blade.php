@@ -12,14 +12,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('scss/jTinder.scss') }}" rel="stylesheet"> -->
 </head>
 
 <body>
-
-    <!-- @section('content') -->
-
     <div class="topPage">
         <nav class="nav">
             <ul>
@@ -33,33 +30,36 @@
                 @foreach($users as $user)
                 <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
                 <li data-user_id="{{ $user->id }}">
+                    <!-- 写真 -->
+                    <img src="/storage/images/{{ $user->img_name}}">
                     <!-- 名前 -->
                     <div class="userName">{{ $user->name }}</div>
                     <!-- 年齢 -->
-                    <!-- <div class="userName">{{ $user->age }}</div> -->
-                    <!-- 写真 -->
-                    <img src="/storage/images/{{ $user->img_name}}">
+                    <!-- <div class="userage">{{ $user->age }}</div> -->
+                    <!-- 距離 -->
+                    <!-- <div class="userdistance">{{ $user->distance }}</div> -->
                     <!-- 自己紹介 -->
                     <div class="selfintro">{{ $user->self_introduction }}</div>
-                    <!-- 距離 -->
-                    <!-- <div class="userName">{{ $user->distance }}</div> -->
-                    <div class="like">
-                    </div>
-                    <div class="dislike">
-                    </div>
+
+                    <div class="like"></div>
+                    <div class="dislike"></div>
                 </li>
                 @endforeach
             </ul>
             <div class="noUser">近くにお相手がいません。</div>
         </div>
         <div class="actions" id="actionBtnArea">
-            <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
-            <a href="#" class="like"><i class="fas fa-heart fa-2x"></i></a>
+            <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
+            <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>NOPE</a>
+            <!-- <a href="#" class="superlike"><i class="fas fa-times fa-2x"></i></a> -->
+            <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>LIKE</a>
+            <!-- 詳細確認ボタン -->
+            <a href="home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a>
         </div>
     </div>
-
+    <!-- @section('content') -->
+    <!-- @yield('content') --> -->
     <!-- @endsection -->
-    <!-- @yield('content') -->
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
