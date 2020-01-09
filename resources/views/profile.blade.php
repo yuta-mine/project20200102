@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @push('css')
-    <link href="{{ asset('css/user.css') }}" rel="stylesheet">
+<link href="{{ asset('css/user.css') }}" rel="stylesheet">
 @endpush
 
 <div class="panel-body">
@@ -11,7 +11,6 @@
     <div class="form-group">
 
         <div>NOT Vue.js</div>
-        <div>{{$user->name}}</div>
         <div class="user-info arc">
             <div class="top-img-area mx-auto">
                 <!-- <img src="{{$user->profile_img_url}}" alt=""> -->
@@ -22,6 +21,7 @@
                 <span class="name">{{ $user->name }}</span>
                 <span class="age">30</span>
             </div>
+            <div>id: {{ Auth::user()->id }}</div>
 
             <div class="user-menu">
                 <div class="d-flex justify-content-between">
@@ -48,7 +48,7 @@
                         </a>
                         <p>情報の編集</p>
                     </div>
-                    <form id="profileedit" action="" method="GET" style="display: none">
+                    <form id="profileedit" action="{{ route('users.edit', $user->id) }}" method="GET" style="display: none">
                         <!-- <button type="submit">test</button> -->
                     </form>
 

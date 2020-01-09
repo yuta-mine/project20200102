@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         $user = User::findorFail($id);
 
-        return view('users.edit', compact('user'));
+        return view('profileedit', compact('user'));
     }
 
     public function update($id, ProfileRequest $request)
