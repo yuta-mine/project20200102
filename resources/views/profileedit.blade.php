@@ -106,7 +106,7 @@
             </div>
             <div class="col-sm-6 form-primary">
                 <label for="user_favorite" class="col-sm-3 control-label">性別</label>
-                <input type="text" name="user_favorite" id="user_favorite" class="form-control" value="">
+                <input type="text" name="user_favorite" id="user_favorite" class="form-control" value="{{ $user->sex }}">
             </div>
         </div>
         <!-- タスク登録ボタン -->

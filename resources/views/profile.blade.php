@@ -19,9 +19,8 @@
             </div>
             <div id="bio" class="bio">
                 <span class="name">{{ $user->name }}</span>
-                <span class="age">30</span>
+                <span class="age"></span>
             </div>
-            <div>id: {{ Auth::user()->id }}</div>
 
             <div class="user-menu">
                 <div class="d-flex justify-content-between">
