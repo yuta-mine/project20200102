@@ -11698,7 +11698,7 @@ body {
 #tinderslide ul > li .userName {
   position: absolute;
   bottom: 5px;
-  color: #000;
+  color: white;
 }
 
 #tinderslide ul > li img {
@@ -11797,7 +11797,7 @@ body {
   display: flex;
   -webkit-box-pack: justify;
           justify-content: space-between;
-  width: 200px;
+  width: 10px;
   margin: 15px auto;
 }
 

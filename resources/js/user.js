@@ -6,10 +6,10 @@
 let observers = [];
 // 監視ターゲットの取得
 //const target = document.getElementById('target')
-let target = document.querySelectorAll('.carousel-item');
-const buttonElm = document.querySelector('.tinder-button-text')
+let targetElm = document.querySelectorAll('.carousel-item');
+const buttonElm = document.querySelector('.tinder-button-text');
 
-for (let i = 0; i < target.length; i++){   
+for (let i = 0; i < targetElm.length; i++){   
     // オブザーバーの作成
     observers[i] = new MutationObserver(records => {
         // 変化が発生したときの処理を記述
@@ -22,7 +22,7 @@ for (let i = 0; i < target.length; i++){
     });
 
     // 監視の開始
-    observers[i].observe(target[i], {
+    observers[i].observe(targetElm[i], {
         attributes: true
     })
 

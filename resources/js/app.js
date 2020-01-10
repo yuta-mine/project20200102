@@ -6,7 +6,10 @@ require('./jquery.transform2d');
 
 require('./jTinder');
 
-require('./users')
+require('./users');
+
+require('./user');
+
 
 // window.Vue = require('vue');
 

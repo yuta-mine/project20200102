@@ -37012,7 +37012,9 @@ __webpack_require__(/*! ./jquery.transform2d */ "./resources/js/jquery.transform
 
 __webpack_require__(/*! ./jTinder */ "./resources/js/jTinder.js");
 
-__webpack_require__(/*! ./users */ "./resources/js/users.js"); // window.Vue = require('vue');
+__webpack_require__(/*! ./users */ "./resources/js/users.js");
+
+__webpack_require__(/*! ./user */ "./resources/js/user.js"); // window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37782,6 +37784,41 @@ $('.actions .like, .actions .dislike').click(function (e) {
 
 /***/ }),
 
+/***/ "./resources/js/user.js":
+/*!******************************!*\
+  !*** ./resources/js/user.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// resourcesのjsフォルダにusers.js っていう似た名前のファイルがあるので注意
+// maru ファイル追加
+// profile
+var observers = []; // 監視ターゲットの取得
+//const target = document.getElementById('target')
+
+var targetElm = document.querySelectorAll('.carousel-item');
+var buttonElm = document.querySelector('.tinder-button-text');
+
+for (var i = 0; i < targetElm.length; i++) {
+  // オブザーバーの作成
+  observers[i] = new MutationObserver(function (records) {
+    // 変化が発生したときの処理を記述
+    //console.log('change' + i);
+    var active = document.querySelector('.active');
+    var childnode = active.children;
+    var text = childnode[0].textContent;
+    console.log(text);
+    buttonElm.innerText = text;
+  }); // 監視の開始
+
+  observers[i].observe(targetElm[i], {
+    attributes: true
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/users.js":
 /*!*******************************!*\
   !*** ./resources/js/users.js ***!
@@ -37826,8 +37863,8 @@ $(document).on("change", "#file_photo", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/project20200102/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/project20200102/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/nino/code/project20200102/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/nino/code/project20200102/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
