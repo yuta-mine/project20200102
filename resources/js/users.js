@@ -11,4 +11,3 @@ $(document).on("change", "#file_photo", function (e) {
         return reader.readAsDataURL(e.target.files[0]);
     }
 });
-

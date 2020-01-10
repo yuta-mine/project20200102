@@ -14,7 +14,6 @@
         <div class="user-info arc">
             <div class="top-img-area mx-auto">
                 <!-- <img src="{{$user->profile_img_url}}" alt=""> -->
-                <img class="top-img img-thumbnail rounded-circle img-responsive full-width" src=" https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" alt="">
                 <img class="top-img img-thumbnail rounded-circle img-responsive full-width" src="/storage/images/{{$user -> img_name}}" alt="">
             </div>
             <div id="bio" class="bio">

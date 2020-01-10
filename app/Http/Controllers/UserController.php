@@ -17,8 +17,6 @@ class UserController extends Controller
     {
         $user = User::findorFail($id); //
 
-        // dd($user); //
-
         //return view('users.show', compact('user'));
         return view('profile', compact('user'));
     }
@@ -35,11 +33,11 @@ class UserController extends Controller
         $user = User::findorFail($id);
 
         return view('profileedit', compact('user'));
+        // return view('users.edit', compact('user'));
     }
 
     public function update($id, ProfileRequest $request)
     {
-
         $user = User::findorFail($id);
 
         if (!is_null($request['img_name'])) {
@@ -75,6 +73,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->to('home');
+        // return redirect()->to('home');
+        return redirect()->route('users.show', $id);
     }
 }
