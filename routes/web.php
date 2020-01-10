@@ -16,9 +16,14 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UserController@show')->name('users.show');
     Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
     Route::post('update/{id}', 'UserController@update')->name('users.update');
-    
+
     // 下記のルートを追加 ユーザーのセッティング画面に遷移する maru
     Route::get('show/{id}/setting', 'UserController@setting')->name('users.setting');
+    // 下記のルートを追加 チャットルームへ移動する suke
+    Route::get('chat/{id}',function(){
+        return view('chat');
+    });
+
 });
 
 Auth::routes();
@@ -28,3 +33,4 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
