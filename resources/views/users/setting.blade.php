@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 @push('css')
-    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/setting.css') }}" rel="stylesheet">
+<link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
+<link href="{{ secure_asset('css/setting.css') }}" rel="stylesheet">
 @endpush
 
 <div class="panel-body">
@@ -54,7 +54,12 @@
                 <div class="col-sm-6 form-control d-flex justify-content-between align-items-center">
                     <label class="" for="">メールアドレス</label>
                     <div class="d-flex justify-content-between">
-                        <div id="email" class="form-item">いますぐ認証</div>
+                        @isset($user->email)
+                            <div id="email" class="form-item">{{ $user->email }}</div>
+                        @endisset
+                        @empty($user->email)
+                            <div id="email" class="form-item">いますぐ認証する</div>
+                        @endempty
                         <a class="next-icon" href="#carouselExampleIndicators" role="button" data-slide="next">
                             <i class="fas fa-angle-right"></i>
                         </a>
@@ -64,7 +69,9 @@
                 <div class="col-sm-6 form-control d-flex justify-content-between align-items-center">
                     <label class="" for="">電話番号</label>
                     <div class="d-flex justify-content-between">
-                        <div id="phoneNumber" class="form-item">user->phoneNumber</div>
+                        <div id="phoneNumber" class="form-item">
+                            user->phoneNumber
+                        </div>
                         <a class="next-icon" href="#carouselExampleIndicators" role="button" data-slide="next">
                             <i class="fas fa-angle-right"></i>
                         </a>

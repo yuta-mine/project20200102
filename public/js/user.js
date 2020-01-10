@@ -1,4 +1,6 @@
+// resourcesのjsフォルダにusers.js っていう似た名前のファイルがあるので注意
 
+// maru ファイル追加
 // profile
 
 let observers = [];
@@ -26,25 +28,3 @@ for (let i = 0; i < target.length; i++){
 
 }
 
-// profileEdit
-//document.querySelector('.file-upload').file_upload();
-//$('.file-upload').file_upload();
-
-// setting
-
-// let app = new Vue({
-//     el: '#app',
-//     components: {
-//         'vueSlider': VueSlider,
-//     },
-//     data: {
-//         divWidth: 100,
-//         value1: 2,
-//         value2: [18, 30]
-//     },
-//     computed: {
-//         getWidth: function () {
-//             return this.value1;
-//         }
-//     }
-// });
