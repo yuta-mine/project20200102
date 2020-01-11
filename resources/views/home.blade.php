@@ -34,6 +34,7 @@
                     <img src="/storage/images/{{ $user->img_name}}">
                     <!-- 名前 -->
                     <div class="userName">{{ $user->name }}</div>
+                    <div class="userId">{{ $user->id }}</div>
                     <!-- 年齢 -->
                     <!-- <div class="userage">{{ $user->age }}</div> -->
                     <!-- 距離 -->
@@ -52,7 +53,7 @@
             <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
             <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>NOPE</a>
             <!-- <a href="#" class="superlike"><i class="fas fa-times fa-2x"></i></a> -->
-            <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>LIKE</a>
+            <a id="likebtn" href="#" class="like"><i class="fas fa-heart fa-2x"></i>LIKE</a>
             <!-- 詳細確認ボタン -->
             <a href="home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a>
         </div>
@@ -64,7 +65,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    
+    <script>
+        document.getElementById('likebtn').addEventListener('click', function(){
+            console.log(true);
+            console.log(document.querySelector('.userId').innerText);
+        });
+    </script>
 </body>
 
 </html>
