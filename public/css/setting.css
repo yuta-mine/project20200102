@@ -46,7 +46,7 @@ input[type=range]::-webkit-slider-thumb{
     width:26px;
     height:26px;
     position: absolute;
-    bottom: -6px;
+    /* bottom: -6px; */
 }
 
 .vue-slider-process {

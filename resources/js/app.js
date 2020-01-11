@@ -10,6 +10,7 @@ require('./users');
 
 require('./user');
 
+require('./vueslider');
 
 // window.Vue = require('vue');
 

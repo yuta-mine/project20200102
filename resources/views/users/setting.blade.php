@@ -55,10 +55,10 @@
                     <label class="" for="">メールアドレス</label>
                     <div class="d-flex justify-content-between">
                         @isset($user->email)
-                            <div id="email" class="form-item">{{ $user->email }}</div>
+                        <div id="email" class="form-item">{{ $user->email }}</div>
                         @endisset
                         @empty($user->email)
-                            <div id="email" class="form-item">いますぐ認証する</div>
+                        <div id="email" class="form-item">いますぐ認証する</div>
                         @endempty
                         <a class="next-icon" href="#carouselExampleIndicators" role="button" data-slide="next">
                             <i class="fas fa-angle-right"></i>
@@ -102,7 +102,7 @@
                             <div id="kilometer">@{{ getWidth }}km</div>
                         </div>
                         <div>
-                            <!-- <vue-slider ref="slider" v-model="value1" :min="2" :max="161"></vue-slider> -->
+                            <vue-slider ref="slider" v-model="value1" :min="2" :max="161"></vue-slider>
                             <input type="text" name="distance" value="" style="display: none">
                             <!-- props を使えば value に値をぶちこめそう -->
                         </div>
@@ -118,9 +118,12 @@
                         </div>
                     </div>
                     <div class="col-sm-6 form-control">
-                        <div class="d-flex justify-content-between align-items-center">年齢の範囲</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>年齢の範囲</div>
+                            <div>@{{ targetAge[0] }} - @{{ targetAge[1] }}</div>
+                        </div>
                         <div>
-                            <!-- <vue-slider ref="slider" v-model="value2" :min="18" :max="55"></vue-slider> -->
+                            <vue-slider ref="slider" v-model="targetAge" :min="18" :max="55"></vue-slider>
                         </div>
                     </div>
                 </div>
