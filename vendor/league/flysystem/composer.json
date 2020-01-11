@@ -16,7 +16,8 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "ext-fileinfo": "*"
+        "ext-fileinfo": "*",
+        "farhanwazir/laravelgooglemaps": "^2.3"
     },
     "require-dev": {
         "phpspec/phpspec": "^3.4",

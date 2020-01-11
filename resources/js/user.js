@@ -20,11 +20,9 @@ for (let i = 0; i < targetElm.length; i++){
         console.log(text);
         buttonElm.innerText = text;
     });
-
     // 監視の開始
     observers[i].observe(targetElm[i], {
         attributes: true
     })
-
 }
 
