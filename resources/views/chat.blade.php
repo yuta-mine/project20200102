@@ -31,7 +31,6 @@
                         .then((response) => {
                             this.messages = response.data;
                         });
-
                 },
 
                 send() {

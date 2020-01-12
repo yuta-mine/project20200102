@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
-
     public function index()
     { // 新着順にメッセージ一覧を取得
         return \App\Message::orderBy('id', 'desc')->get();
@@ -23,6 +22,7 @@ class ChatController extends Controller
         $message = \App\Message::create([
             'body' => $request->message
         ]);
+        ddd($request);
         event(new MessageCreated($message));
     }
 }

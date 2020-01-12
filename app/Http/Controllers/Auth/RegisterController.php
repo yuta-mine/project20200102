@@ -93,7 +93,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
-            'img_name' => $fileNameToStore,
+            'img_name' => $fileNameToStore
             // 'img_name2' => $fileNameToStore,
         ]);
     }

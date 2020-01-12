@@ -47692,8 +47692,8 @@ $(document).on("change", "#file_photo", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/project20200102/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/project20200102/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/nino/code/project20200102/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/nino/code/project20200102/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
