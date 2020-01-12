@@ -1,19 +1,33 @@
+@extends('layouts.app')
+@section('content')
+@push('css')
+    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
+@endpush
 <html>
-
 <body>
+
+        <nav class="nav">
+            <ul>
+                <li class="personIcon">
+                    <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">{{Auth::id()}}</i></a><p>{{Auth::id()}}</p></li>
+
+                <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
+            </ul>
+        </nav>
+
     <div id="chat">
-        <textarea v-model="message"></textarea>
-        <br>
-        <button type="button" @click="send()">送信</button>
-        <hr>
 
         <div v-for="m in messages">
             <span v-text="m.created_at"></span>：&nbsp;
             <!-- 登録された日時 -->
             <span v-text="m.body"></span><!-- メッセージ内容 -->
+            <span v-text="m.user_id"></span>
         </div>
+        <hr>
+        <textarea v-model="message"></textarea>
+        <br>
+        <button type="button" @click="send()">送信</button>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
     <script src="/js/app.js"></script>
 
@@ -27,6 +41,7 @@
             methods: {
                 getMessages() {
                     const url = '/ajax/chat';
+
                     axios.get(url)
                         .then((response) => {
                             this.messages = response.data;
@@ -37,6 +52,7 @@
                 send() {
 
                     const url = '/ajax/chat';
+                    // const user_id = 1;
                     const params = {
                         message: this.message
                     };
@@ -60,3 +76,4 @@
 </body>
 
 </html>
+@endsection
