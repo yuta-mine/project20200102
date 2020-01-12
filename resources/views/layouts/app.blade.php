@@ -10,7 +10,11 @@
 
     <title>Tinder {{ config('app.name', 'Laravel') }}</title>
 
+    <!-- API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuKj5VOfkkixfBl_s0doXmcm74n4jzOag"></script>
+
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
     <!-- <script src="{{ secure_asset('js/user.js') }}" defer></script> -->
 

@@ -123,20 +123,5 @@
             </div>
         </div>
     </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(document).on("change", ".upload-photo", function(e) {
-            let currentNode = $(this)[0];
-            var reader;
-            if (e.target.files.length) {
-                reader = new FileReader;
-                reader.onload = function(e) {
-                    currentNode.nextElementSibling.setAttribute('src', e.target.result);
-                };
-                return reader.readAsDataURL(e.target.files[0]);
-            }
-        });
-
-    </script>
 </div>
 @endsection

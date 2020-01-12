@@ -49937,7 +49937,9 @@ __webpack_require__(/*! ./users */ "./resources/js/users.js");
 
 __webpack_require__(/*! ./user */ "./resources/js/user.js");
 
-__webpack_require__(/*! ./vueslider */ "./resources/js/vueslider.js"); // window.Vue = require('vue');
+__webpack_require__(/*! ./vueslider */ "./resources/js/vueslider.js");
+
+__webpack_require__(/*! ./googlemap */ "./resources/js/googlemap.js"); // window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -49993,6 +49995,45 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/googlemap.js":
+/*!***********************************!*\
+  !*** ./resources/js/googlemap.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* 現在地取得 maru ------------------------------------------
+ * リロードのたびに現在地を読み込む
+/*----------------------------------------------------------*/
+//getMyPlace();
+function getMyPlace() {
+  if (!navigator.geolocation) {
+    //Geolocation apiがサポートされていない場合
+    output.innerHTML = "<p>Geolocationはあなたのブラウザーでサポートされておりません</p>";
+    return;
+  }
+
+  function success(position) {
+    var latitude = position.coords.latitude; //緯度
+
+    var longitude = position.coords.longitude; //経度
+
+    console.log(latitude, longitude); // ここでajax通信してdbに現在地を書き込む？
+  }
+
+  ;
+
+  function error() {
+    //エラーの場合
+    alert("座標位置を取得できません");
+  }
+
+  ;
+  navigator.geolocation.getCurrentPosition(success, error); //成功と失敗を判断
+}
 
 /***/ }),
 
@@ -50738,7 +50779,23 @@ for (var i = 0; i < targetElm.length; i++) {
   observers[i].observe(targetElm[i], {
     attributes: true
   });
-}
+} // profileEdit プロフィール画像登録の処理
+
+
+$(document).on("change", ".upload-photo", function (e) {
+  var currentNode = $(this)[0];
+  var reader;
+
+  if (e.target.files.length) {
+    reader = new FileReader();
+
+    reader.onload = function (e) {
+      currentNode.nextElementSibling.setAttribute('src', e.target.result);
+    };
+
+    return reader.readAsDataURL(e.target.files[0]);
+  }
+});
 
 /***/ }),
 

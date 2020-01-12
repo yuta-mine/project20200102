@@ -12,6 +12,8 @@ require('./user');
 
 require('./vueslider');
 
+require('./googlemap');
+
 // window.Vue = require('vue');
 
 /**
