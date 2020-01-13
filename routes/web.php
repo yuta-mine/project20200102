@@ -28,3 +28,20 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// 会員登録時のページ遷移しながらデータ保持して次へ行く処理 shino
+Route::get('/name', 'Auth\RegisterController@name')->name('name');
+
+Route::post('/birthday', 'Auth\RegisterController@birthday')->name('birthday');
+
+Route::post('/gender', 'Auth\RegisterController@gender')->name('gender');
+
+Route::post('/school', 'Auth\RegisterController@school')->name('school');
+
+Route::post('/hobby', 'Auth\RegisterController@hobby')->name('hobby');
+
+Route::get('/picture', 'Auth\RegisterController@picture')->name('picture');
+
+Route::post('/register', 'Auth\RegisterController@create')->name('registerend');
+
+// 会員登録時のページ遷移しながらデータ保持して次へ行く処理 ここまで shino
