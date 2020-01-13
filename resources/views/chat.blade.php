@@ -2,6 +2,7 @@
 
 <body>
     <div id="chat">
+        <div>{{ Auth::user()->id }}</div>
         <textarea v-model="message"></textarea>
         <br>
         <button type="button" @click="send()">送信</button>

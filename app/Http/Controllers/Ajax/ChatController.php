@@ -11,7 +11,7 @@ class ChatController extends Controller
 {
     public function index()
     { // 新着順にメッセージ一覧を取得
-        return \App\Message::orderBy('id', 'desc')->get();
+        return Message::orderBy('id', 'desc')->get();
     }
 
     protected $fillable = ['name'];
@@ -19,10 +19,9 @@ class ChatController extends Controller
     public function create(Request $request)
     { // メッセージを登録
         // return response()->json($request->message);
-        $message = \App\Message::create([
+        $message = Message::create([
             'body' => $request->message
-        ]);
-        ddd($request);
+            ]);
         event(new MessageCreated($message));
     }
 }
