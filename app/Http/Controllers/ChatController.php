@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class ChatController extends Controller
 
 {
-    
+
     public function index(){
         $user = Auth::user();   #ログインユーザー情報を取得します。
         return view('chat', ['user' => $data]);
@@ -23,13 +23,3 @@ class ChatController extends Controller
     //     ]);
     }
 }
-
-
-    // public function create(Request $request)
-    // { // メッセージを登録
-    //     // return response()->json($request->message);
-    //     $message = \App\Message::create([
-    //         'body' => $request->message
-    //     ]);
-    //     event(new MessageCreated($message));
-    // }

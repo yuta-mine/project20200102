@@ -17,6 +17,7 @@ class CreateMessagesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('name');
+            $table->varchar('img_name');
             $table->text('body');
             $table->timestamps();
         });

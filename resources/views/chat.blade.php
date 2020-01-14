@@ -22,12 +22,13 @@
     <div id="chat">
 
         <div v-for="m in messages">
-            <span v-text="m.created_at"></span>：&nbsp;
-            <!-- 登録された日時 -->
+            <span v-text="m.created_at"></span>：&nbsp;<!-- 登録された日時 -->
             <span v-text="m.body"></span><!-- メッセージ内容 -->
-            <span v-text="m.user_id"></span>
+            <!-- <span v-text="m.user_id"></span> -->
             <span v-text="m.name"></span>
+            <img :src="m.img_name" alt="">
         </div>
+
         <hr>
         <textarea v-model="message"></textarea>
         <br>
@@ -58,9 +59,10 @@
 
                     const url = '/ajax/chat';
                     const params = {
-                        message: this.message,
-                        user_id: this.user_id,
-                        name: this.name
+                        message:  this.message,
+                        user_id:  this.user_id,
+                        name:     this.name,
+                        img_name: this.img,
                     };
                     console.log(params);
                     axios.post(url, params)

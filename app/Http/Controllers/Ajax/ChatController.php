@@ -25,24 +25,9 @@ class ChatController extends Controller
             'body' => $request->message,
             'user_id' => Auth::user()->id,
             'name' => Auth::user()->name,
-
+            'img_name' => '/storage/images/'. Auth::user()->img_name,
+            // 'img_name' => /storage/images/{{Auth::user()->img_name}},
         ]);
         event(new MessageCreated($message));
     }
-
-
-    // public function index(Request $request)
-    // {
-    //     // ビデオチャットページ
-
-    //     $user = $request->user();
-    //     $others = \App\User::where('id', '!=', $user->id)->pluck('name', 'id');
-    //     return view('video_chat.index')->with([
-    //         'user' => collect($request->user()->only(['id', 'name'])),
-    //         'others' => $others
-    //     ]);
-
-    // }
-
-
 }
