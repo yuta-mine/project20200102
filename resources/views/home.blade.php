@@ -1,16 +1,17 @@
   @extends('layouts.homelayout')
   <style>
-      button {
-          /* position: absolute; */
-          /* bottom: 50px; */
-          /* left: 50px; */
-          /* background-color: blue; */
+      .likebtn,
+      .dislikebtn {
+          position: absolute;
+          color: gray;
+          background-color: skyblue;
       }
 
-      .form_hidden {
+      .btn_hidden {
           visibility: hidden;
       }
   </style>
+
   @section('content')
 
   <div class="topPage">
@@ -21,89 +22,82 @@
               <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
           </ul>
       </nav>
-      <!-- <div id="tinderslide"> -->
-      <!-- @csrf -->
-      <ul>
-          @foreach($users as $user)
-          <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
-          <li data-user_id="{{ $user->id }}">
-              <p>{{ $user->id }}</p>
-              <!-- <form action="{{ route('users.like')}}" method="POST"> -->
-              @csrf
-
-              <!-- </form> -->
-              <!-- buttonをクリックすると、ルートusers.like（web.phpに定義）にidをpostする -->
-
-              <!-- 写真 -->
-              <!-- <img src="/storage/images/{{ $user->img_name }}"> -->
-              <!-- 名前 -->
-              <div class="userName">{{ $user->name }}</div>
-              <!-- 年齢 -->
-              <!-- <div class="userage">{{ $user->age }}</div> -->
-              <!-- 距離 -->
-              <!-- <div class="userdistance">{{ $user->distance }}</div> -->
-              <!-- 自己紹介 -->
-              <div class="selfintro">{{ $user->self_introduction }}</div>
+      <div id="tinderslide">
+          <!-- @csrf -->
+          <ul>
+              @foreach($users as $user)
+              <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+              <li data-user_id="{{ $user->id }}">
+                  @csrf
+                  <!-- 写真 -->
+                  <!-- <img src="/storage/images/{{ $user->img_name }}"> -->
+                  <!-- 名前 -->
+                  <div class="userName">{{ $user->name }}</div>
+                  <!-- 年齢 -->
+                  <!-- <div class="userage">{{ $user->age }}</div> -->
+                  <!-- 距離 -->
+                  <!-- <div class="userdistance">{{ $user->distance }}</div> -->
+                  <!-- 自己紹介 -->
+                  <div class="selfintro">{{ $user->self_introduction }}</div>
+              </li>
               @endforeach
-      </ul>
-      <div class="like"></div>
-      <div class="dislike"></div>
-      </li>
-      @foreach($users as $user)
-      <button name="name" value="{{ $user->id }}" class="likebtn" id="likebtn" onclick="like()">{{ $user->id }}</button>
-      @endforeach
-  </div>
+          </ul>
+          <div class="like"></div>
+          <div class="dislike"></div>
 
-  <!-- <div class="noUser">近くにお相手がいません。</div> -->
-  <!-- </div> -->
-  <!-- <div class="actions" id="actionBtnArea">
+      </div>
+
+      <div class="actions" id="actionBtnArea">
           <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
           <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>NOPE</a>
-          <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>LIKE</a>
-          <a href="home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a>
-      </div> -->
+          <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>
+              @foreach($users as $user)
+              <button class="likebtn">{{ $user->id }}</button>
+              @endforeach
+          </a>
+          <a href=" home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a>
+      </div>
+  </div>
 
-
-  <!-- </div> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
-      var likebtn = document.getElementById('likebtn');
-      var val = likebtn.value;
-      console.log(val);
-      console.log("{{button.val()}}");
-      //   let array = [
+      //   $('.back').on('click', function() {
+      //       var likebutton = $('.likebtn').innerText;
+      //       $('.likebtn').removeClass('btn_hidden');
+      //   });
 
-      //   ]
-      //   console.log(array);
+      $('.dislike').on('click', function() {
+          const likebutton = $('.likebtn').innerText;
+          console.log(likebutton);
+          //   var max = Math.max(likebutton);
+          //   $('max').addClass('btn_hidden');
+      });
 
-      function like() {
-          // ajaxでDBに登録
+      $('.likebtn').on('click', function() {
+          //クリック時に一番上にあるボタンを隠す
+          var likebutton = this.innerText;
+          $(this).addClass('btn_hidden');
+
+          // 認証確認
           $.ajaxSetup({
               headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
               }
           });
-
-          const value = {
-              likeval: 1,
-              hoge: 100,
-          }
-
+          // ajaxでDBに登録
           $.ajax({
               dataType: 'json',
               url: '/api/like',
               type: 'POST',
-              data: value,
+              data: {
+                  dataval: likebutton,
+              },
           }).done(function(data) {
               console.log('success');
           }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
               console.log("ajax通信に失敗しました");
           });
-
-          // ユーザIDの数を減らす
-
-
-      }
+      });
   </script>
 
   @endsection

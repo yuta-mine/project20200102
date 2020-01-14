@@ -26,14 +26,14 @@ class ReactionController extends Controller
         $reaction = new Reaction();
 
         //nameをto_user_idに登録
-        $reaction->to_user = $request->hoge;
+        $reaction->to_user = $request->dataval;
 
         //認証したidをfrom_userに登録
         $from_user = Auth::id();
         $reaction->from_user = $from_user;
 
         // to_userを定義
-        // $to_user = $request->to_user_id;
+        // $to_user = $request->to_user;
 
         // $checkReaction = Reaction::where([
         //     ['to_user', $to_user],
