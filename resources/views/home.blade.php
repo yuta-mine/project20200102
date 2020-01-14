@@ -10,10 +10,6 @@
       .form_hidden {
           visibility: hidden;
       } */
-
-      .red {
-          color: red;
-      }
   </style>
   @section('content')
 
@@ -32,14 +28,14 @@
           <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
           <li data-user_id="{{ $user->id }}">
               <p>{{ $user->id }}</p>
-              <form action="{{ route('users.like')}}" method="POST">
-                  @csrf
-                  <button name="name" value="{{ $user->id }}" class="likebtn" onclick="like()" id="like">{{ $user->id }}</button>
-              </form>
+              <!-- <form action="{{ route('users.like')}}" method="POST"> -->
+              @csrf
+              <button name="name" value="{{ $user->id }}" class="likebtn" onclick="like()">{{ $user->id }}</button>
+              <!-- </form> -->
               <!-- buttonをクリックすると、ルートusers.like（web.phpに定義）にidをpostする -->
 
               <!-- 写真 -->
-              <img src="/storage/images/{{ $user->img_name }}">
+              <!-- <img src="/storage/images/{{ $user->img_name }}"> -->
               <!-- 名前 -->
               <div class="userName">{{ $user->name }}</div>
               <!-- 年齢 -->
@@ -70,43 +66,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
       function like() {
-          $('.likebtn').addClass('form_hidden');
-      }
+          //   var usersNum = $userCount;
+          //   var from_user = $from_user;
 
-      //お試し
-      $(document).ready(function() {
-          $("button").click(function() {
-              $(".userName").addClass("red");
+          // function like(to_user) {
+          //     $.ajaxSetup({
+          //         headers: {
+          //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+          //         }
+          //     });
+          const value = {
+              likeval: $('.likebtn').val(),
+          }
+
+          $.ajax({
+              dataType: 'json',
+              url: '/api',
+              type: 'POST',
+              data: value,
+          }).done(function(data) {
+              console.log('success');
+          }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+              console.log("ajax通信に失敗しました");
           });
-      });
-
-      //   var usersNum = $userCount;
-      //   var from_user = $from_user;
-
-      // function like(to_user) {
-      //     $.ajaxSetup({
-      //         headers: {
-      //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-      //         }
-      //     });
-      //     $.ajax({
-      //         //   dataType: 'json',
-      //         url: '/api/like',
-      //         type: 'POST',
-      //         data: {
-      //             //   value: $('.likebtn').val(),
-      //             to_user: to_user,
-      //             from_user: from_user,
-      //         },
-      //         success: function(j_data) {
-      //             console.log("success")
-      //         }
-      //         //   }).done(function(data) {
-      //         //       console.log('成功');
-      //         //       console.log(data);
-      //         //   }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
-      //         //       console.log("ajax通信に失敗しました");
-      //     });
+      }
       // }
 
       //   $("#tinderslide").jTinder({
