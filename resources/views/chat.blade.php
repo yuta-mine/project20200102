@@ -1,19 +1,23 @@
 @extends('layouts.app')
 @section('content')
 @push('css')
-    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
+<link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
 @endpush
 <html>
+
 <body>
 
-        <nav class="nav">
-            <ul>
-                <li class="personIcon">
-                    <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">{{Auth::id()}}</i></a><p>{{Auth::id()}}</p></li>
+    <nav class="nav">
+        <ul>
+            <li class="personIcon">
+                <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">{{Auth::id()}}</i></a>
+                <p>{{Auth::id()}}</p>
+            </li>
 
-                <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
-            </ul>
-        </nav>
+            <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
+        </ul>
+    </nav>
+    <img src="/storage/images/{{Auth::user()->img_name}}" alt="user_icon">
 
     <div id="chat">
 
@@ -22,6 +26,7 @@
             <!-- 登録された日時 -->
             <span v-text="m.body"></span><!-- メッセージ内容 -->
             <span v-text="m.user_id"></span>
+            <span v-text="m.name"></span>
         </div>
         <hr>
         <textarea v-model="message"></textarea>
@@ -52,9 +57,10 @@
                 send() {
 
                     const url = '/ajax/chat';
-                    // const user_id = 1;
                     const params = {
-                        message: this.message
+                        message: this.message,
+                        user_id: this.user_id,
+                        name: this.name
                     };
                     console.log(params);
                     axios.post(url, params)

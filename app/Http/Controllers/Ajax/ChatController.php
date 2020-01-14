@@ -6,6 +6,7 @@ use App\Message;
 use App\Events\MessageCreated;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class ChatController extends Controller
 {
@@ -22,7 +23,8 @@ class ChatController extends Controller
         // return response()->json($request->message);
         $message = \App\Message::create([
             'body' => $request->message,
-            // 'user_id' => $request->user_id,
+            'user_id' => Auth::user()->id,
+            'name' => Auth::user()->name,
 
         ]);
         event(new MessageCreated($message));
