@@ -22,7 +22,7 @@
           </ul>
       </nav>
       <!-- <div id="tinderslide"> -->
-      @csrf
+      <!-- @csrf -->
       <ul>
           @foreach($users as $user)
           <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
@@ -69,12 +69,12 @@
           //   var usersNum = $userCount;
           //   var from_user = $from_user;
 
-          // function like(to_user) {
-          //     $.ajaxSetup({
-          //         headers: {
-          //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-          //         }
-          //     });
+          $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+              }
+          });
+
           const value = {
               likeval: $('.likebtn').val(),
           }
