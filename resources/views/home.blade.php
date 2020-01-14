@@ -1,69 +1,137 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  @extends('layouts.homelayout')
+  <style>
+      /* form {
+          position: absolute;
+          bottom: 50px;
+          left: 50px;
+      } */
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+      /* 
+      .form_hidden {
+          visibility: hidden;
+      } */
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+      .red {
+          color: red;
+      }
+  </style>
+  @section('content')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+  <div class="topPage">
+      <nav class="nav">
+          <ul>
+              <li class="personIcon">
+                  <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">aa</i></a></li>
+              <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
+          </ul>
+      </nav>
+      <!-- <div id="tinderslide"> -->
+      @csrf
+      <ul>
+          @foreach($users as $user)
+          <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+          <li data-user_id="{{ $user->id }}">
+              <p>{{ $user->id }}</p>
+              <form action="{{ route('users.like')}}" method="POST">
+                  @csrf
+                  <button name="name" value="{{ $user->id }}" class="likebtn" onclick="like()" id="like">{{ $user->id }}</button>
+              </form>
+              <!-- buttonをクリックすると、ルートusers.like（web.phpに定義）にidをpostする -->
 
-    <!-- Styles -->
-    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('scss/jTinder.scss') }}" rel="stylesheet"> -->
-</head>
+              <!-- 写真 -->
+              <img src="/storage/images/{{ $user->img_name }}">
+              <!-- 名前 -->
+              <div class="userName">{{ $user->name }}</div>
+              <!-- 年齢 -->
+              <!-- <div class="userage">{{ $user->age }}</div> -->
+              <!-- 距離 -->
+              <!-- <div class="userdistance">{{ $user->distance }}</div> -->
+              <!-- 自己紹介 -->
+              <div class="selfintro">{{ $user->self_introduction }}</div>
+              @endforeach
+      </ul>
+      <div class="like"></div>
+      <div class="dislike"></div>
+      </li>
 
-<body>
-    <div class="topPage">
-        <nav class="nav">
-            <ul>
-                <li class="personIcon">
-                    <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">aa</i></a></li>
-                <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
-            </ul>
-        </nav>
-        <div id="tinderslide">
-            <ul>
-                @foreach($users as $user)
-                <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
-                <li data-user_id="{{ $user->id }}">
-                    <!-- 写真 -->
-                    <img src="/storage/images/{{ $user->img_name}}">
-                    <!-- 名前 -->
-                    <div class="userName">{{ $user->name }}</div>
-                    <!-- 年齢 -->
-                    <!-- <div class="userage">{{ $user->age }}</div> -->
-                    <!-- 距離 -->
-                    <!-- <div class="userdistance">{{ $user->distance }}</div> -->
-                    <!-- 自己紹介 -->
-                    <div class="selfintro">{{ $user->self_introduction }}</div>
+  </div>
 
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
-                @endforeach
-            </ul>
-            <div class="noUser">近くにお相手がいません。</div>
-        </div>
-        <div class="actions" id="actionBtnArea">
-            <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
-            <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>NOPE</a>
-            <!-- <a href="#" class="superlike"><i class="fas fa-times fa-2x"></i></a> -->
-            <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>LIKE</a>
-            <!-- 詳細確認ボタン -->
-            <a href="home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a>
-        </div>
+  <!-- <div class="noUser">近くにお相手がいません。</div> -->
+  <!-- </div> -->
+  <!-- <div class="actions" id="actionBtnArea">
+          <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
+          <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>NOPE</a>
+          <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>LIKE</a>
+          <a href="home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a>
+      </div> -->
 
-    </div>
-    <!-- @section('content') -->
-    <!-- @yield('content') --> -->
-    <!-- @endsection -->
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
+  <!-- </div> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+      function like() {
+          $('.likebtn').addClass('form_hidden');
+      }
 
-</html>
+      //お試し
+      $(document).ready(function() {
+          $("button").click(function() {
+              $(".userName").addClass("red");
+          });
+      });
+
+      //   var usersNum = $userCount;
+      //   var from_user = $from_user;
+
+      // function like(to_user) {
+      //     $.ajaxSetup({
+      //         headers: {
+      //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+      //         }
+      //     });
+      //     $.ajax({
+      //         //   dataType: 'json',
+      //         url: '/api/like',
+      //         type: 'POST',
+      //         data: {
+      //             //   value: $('.likebtn').val(),
+      //             to_user: to_user,
+      //             from_user: from_user,
+      //         },
+      //         success: function(j_data) {
+      //             console.log("success")
+      //         }
+      //         //   }).done(function(data) {
+      //         //       console.log('成功');
+      //         //       console.log(data);
+      //         //   }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+      //         //       console.log("ajax通信に失敗しました");
+      //     });
+      // }
+
+      //   $("#tinderslide").jTinder({
+      //       onDislike: function(item) {
+      //           currentUserIndex++;
+      //           checkUserNum();
+      //           var to_user = item[0].dataset.user_id
+      //           postReaction(to_user, 'dislike')
+      //       },
+      //       onLike: function(item) {
+      //           currentUserIndex++;
+      //           checkUserNum();
+      //           var to_user = item[0].dataset.user_id
+      //           postReaction(to_user, 'like')
+      //       },
+      //       animationRevertSpeed: 200,
+      //       animationSpeed: 400,
+      //       threshold: 1,
+      //       likeSelector: '.like',
+      //       dislikeSelector: '.dislike'
+      //   });
+      //   $('.actions .like, .actions .dislike').click(function(e) {
+      //       e.preventDefault();
+      //       $("#tinderslide").jTinder($(this).attr('class'));
+      //   });
+  </script>
+
+  @endsection
