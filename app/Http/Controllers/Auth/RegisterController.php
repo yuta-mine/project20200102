@@ -70,7 +70,8 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(Request $data)
-    {   
+    {
+    
         // ddd($data);
         //引数 $data から name='image'を取得(アップロードするファイル情報)
         $imageFile = $data['image'];
@@ -104,9 +105,8 @@ class RegisterController extends Controller
             'img_name' => $fileNameToStore,
         ]);
 
-        // return view('home');
-        // return view('home', ['user' => $data]);
-        return view('auth.login');
+        // return redirect()->intended($this->redirectPath());
+        return view('auth.login'); //ログイン画面へ
     }
 
     // 会員登録でページ遷移しながらデータは保持する関数　ここからshino
