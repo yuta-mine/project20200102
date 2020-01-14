@@ -84,6 +84,9 @@
                 var latitude = position.coords.latitude; //緯度
                 var longitude = position.coords.longitude; //経度
                 console.log(latitude, longitude);
+
+                // このあたりでサーバーに位置情報登録する
+            
                 // //output.innerHTML = '<p>緯度 ' + latitude + '° <br>経度 ' + longitude + '°</p>';
                 // // 位置情報
                 // var latlng = new google.maps.LatLng(latitude, longitude);
