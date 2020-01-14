@@ -81,7 +81,7 @@
 
           $.ajax({
               dataType: 'json',
-              url: '/api',
+              url: '/api/like',
               type: 'POST',
               data: value,
           }).done(function(data) {
