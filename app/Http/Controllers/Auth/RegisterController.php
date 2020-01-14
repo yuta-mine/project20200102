@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices; //拡張子を判別するファイル
 use App\Services\FileUploadServices;
-
+use Illuminate\Http\Request; //データ受け渡し処理時のRequestを使うためshino
 class RegisterController extends Controller
 {
     /*
@@ -69,8 +69,10 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $data)
     {
+    
+        // ddd($data);
         //引数 $data から name='image'を取得(アップロードするファイル情報)
         $imageFile = $data['image'];
         // $imageFile = $data['image2'];
@@ -87,14 +89,63 @@ class RegisterController extends Controller
         //画像を横400px, 縦400pxにリサイズし保存
         $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'age' => $data['age'],
             'password' => Hash::make($data['password']),
             'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
+            'school' => $data['school'],
+            'hobby1' => $data['hobby1'],
+            'hobby2' => $data['hobby2'],
+            'hobby3' => $data['hobby3'],
+            'hobby4' => $data['hobby4'],
+            'hobby5' => $data['hobby5'],
             'img_name' => $fileNameToStore,
-            // 'img_name2' => $fileNameToStore,
         ]);
+
+        // return redirect()->intended($this->redirectPath());
+        return view('auth.login'); //ログイン画面へ
     }
+
+    // 会員登録でページ遷移しながらデータは保持する関数　ここからshino
+    public function name()
+    // public function name(Request $request)
+    {
+        return view('auth.name');
+    }
+    public function birthday(Request $request)
+    {
+        // ddd($request);
+        //ポストデータすべての取得
+        $post_data = $request;
+        return view('auth.birthday', compact('post_data'));
+    }
+    public function gender(Request $request)
+    {
+        // ddd($request);
+        $post_data = $request;
+        return view('auth.gender', compact('post_data'));
+    }
+    public function school(Request $request)
+    {
+        // ddd($request);
+        $post_data = $request;
+        return view('auth.school', compact('post_data'));
+    }
+    public function hobby(Request $request)
+    {
+        // ddd($request);
+        $post_data = $request;
+        return view('auth.hobby', compact('post_data'));
+    }
+    public function picture(Request $request)
+    {
+        // ddd($request);
+        $post_data = $request;
+        return view('auth.picture', compact('post_data'));
+    }
+    // 会員登録でページ遷移しながらデータは保持する関数　ここまで
+
 }
