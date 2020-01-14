@@ -1,15 +1,15 @@
   @extends('layouts.homelayout')
   <style>
-      /* form {
-          position: absolute;
-          bottom: 50px;
-          left: 50px;
-      } */
+      button {
+          /* position: absolute; */
+          /* bottom: 50px; */
+          /* left: 50px; */
+          /* background-color: blue; */
+      }
 
-      /* 
       .form_hidden {
           visibility: hidden;
-      } */
+      }
   </style>
   @section('content')
 
@@ -30,7 +30,7 @@
               <p>{{ $user->id }}</p>
               <!-- <form action="{{ route('users.like')}}" method="POST"> -->
               @csrf
-              <button name="name" value="{{ $user->id }}" class="likebtn" onclick="like()">{{ $user->id }}</button>
+
               <!-- </form> -->
               <!-- buttonをクリックすると、ルートusers.like（web.phpに定義）にidをpostする -->
 
@@ -49,7 +49,9 @@
       <div class="like"></div>
       <div class="dislike"></div>
       </li>
-
+      @foreach($users as $user)
+      <button name="name" value="{{ $user->id }}" class="likebtn" id="likebtn" onclick="like()">{{ $user->id }}</button>
+      @endforeach
   </div>
 
   <!-- <div class="noUser">近くにお相手がいません。</div> -->
@@ -65,10 +67,17 @@
   <!-- </div> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
-      function like() {
-          //   var usersNum = $userCount;
-          //   var from_user = $from_user;
+      var likebtn = document.getElementById('likebtn');
+      var val = likebtn.value;
+      console.log(val);
+      console.log("{{button.val()}}");
+      //   let array = [
 
+      //   ]
+      //   console.log(array);
+
+      function like() {
+          // ajaxでDBに登録
           $.ajaxSetup({
               headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -76,7 +85,8 @@
           });
 
           const value = {
-              likeval: $('.likebtn').val(),
+              likeval: 1,
+              hoge: 100,
           }
 
           $.ajax({
@@ -89,32 +99,11 @@
           }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
               console.log("ajax通信に失敗しました");
           });
-      }
-      // }
 
-      //   $("#tinderslide").jTinder({
-      //       onDislike: function(item) {
-      //           currentUserIndex++;
-      //           checkUserNum();
-      //           var to_user = item[0].dataset.user_id
-      //           postReaction(to_user, 'dislike')
-      //       },
-      //       onLike: function(item) {
-      //           currentUserIndex++;
-      //           checkUserNum();
-      //           var to_user = item[0].dataset.user_id
-      //           postReaction(to_user, 'like')
-      //       },
-      //       animationRevertSpeed: 200,
-      //       animationSpeed: 400,
-      //       threshold: 1,
-      //       likeSelector: '.like',
-      //       dislikeSelector: '.dislike'
-      //   });
-      //   $('.actions .like, .actions .dislike').click(function(e) {
-      //       e.preventDefault();
-      //       $("#tinderslide").jTinder($(this).attr('class'));
-      //   });
+          // ユーザIDの数を減らす
+
+
+      }
   </script>
 
   @endsection

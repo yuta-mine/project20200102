@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Reaction; //Reactionモデルを呼び出し
 use App\User;
 use Auth;
+// use App\Http\Controllers\Controller;
 
 // use App\Constant\Status;
 // use Log;
@@ -20,11 +21,12 @@ class ReactionController extends Controller
 
     public function create(Request $request)
     {
+
         // ddd($request); //requestできているか確認
         $reaction = new Reaction();
 
         //nameをto_user_idに登録
-        $reaction->to_user = $request->name;
+        $reaction->to_user = $request->hoge;
 
         //認証したidをfrom_userに登録
         $from_user = Auth::id();
@@ -53,6 +55,7 @@ class ReactionController extends Controller
 
         //home画面へ移動
         $users = User::all();
-        return view('home', compact('users'));
+        // return view('home', compact('users'));
+        return ['data' => 'hoge'];
     }
 }
