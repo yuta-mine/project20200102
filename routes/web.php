@@ -34,12 +34,12 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
+
 Route::get('ajax/chat', 'Ajax\ChatController@index');
 // メッセージ一覧を取得
 Route::post('ajax/chat', 'Ajax\ChatController@create');
 // チャット登録
-=======
+
 // 会員登録時のページ遷移しながらデータ保持して次へ行く処理 shino
 Route::get('/name', 'Auth\RegisterController@name')->name('name');
 
@@ -56,4 +56,4 @@ Route::get('/picture', 'Auth\RegisterController@picture')->name('picture');
 Route::post('/register', 'Auth\RegisterController@create')->name('registerend');
 
 // 会員登録時のページ遷移しながらデータ保持して次へ行く処理 ここまで shino
->>>>>>> master
+
