@@ -91,16 +91,8 @@
         <div id="tinder_button mx-auto" class="tinder-button-area">
             <a class="button tinder-button-text" href="#">マイ TINDER PLUS</a>
         </div>
-
-
-
     </div>
-    <!-- タスク登録ボタン -->
-    <!-- <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-6">
-            <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-    </div> -->
+    <!-- test -->
 
 
 </div>
