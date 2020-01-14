@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @push('css')
-    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
+<link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
 @endpush
 
 <div class="panel-body">
@@ -19,7 +19,7 @@
             </div>
             <div id="bio" class="bio">
                 <span class="name">{{ $user->name }}</span>
-                <span class="age">30</span>
+                <span class="age">{{ $user->age }}</span>
             </div>
             <div>id: {{ Auth::user()->id }}</div>
 
