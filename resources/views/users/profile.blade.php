@@ -10,7 +10,6 @@
     <!-- タスク登録フォーム -->
     <div class="form-group">
 
-        <div>NOT Vue.js</div>
         <div class="user-info arc">
             <div class="top-img-area mx-auto">
                 <!-- <img src="{{$user->profile_img_url}}" alt=""> -->

@@ -14,8 +14,10 @@ class AddColumnToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('img_name2')->default('');
-            $table->string('img_name3')->default('');
+            // $table->string('img_name2')->default('');
+            // $table->string('img_name3')->default('');
+            $table->string('img_name2')->nullable();
+            $table->string('img_name3')->nullable();
         });
     }
 

@@ -17,8 +17,8 @@ class UserController extends Controller
     {
         $user = User::findorFail($id); //
 
-        //return view('users.show', compact('user'));
-        return view('profile', compact('user'));
+        // view > usersフォルダにファイルを移動
+        return view('users.profile', compact('user'));
     }
 
     // maru 追加 
@@ -32,14 +32,15 @@ class UserController extends Controller
     {
         $user = User::findorFail($id);
 
-        return view('profileedit', compact('user'));
+        // view > usersフォルダにファイルを移動
+        return view('users.profileedit', compact('user'));
         // return view('users.edit', compact('user'));
     }
 
     public function update($id, ProfileRequest $request)
     {
         $user = User::findorFail($id);
-
+    
         if (!is_null($request['img_name'])) {
             $imageFile = $request['img_name'];
 
@@ -64,6 +65,24 @@ class UserController extends Controller
             $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
             $user->img_name2 = $fileNameToStore;
+        }
+
+        if (!is_null($request['img_name3'])) {
+            $imageFile = $request['img_name3'];
+
+            $list = FileUploadServices::fileUpload($imageFile);
+            list($extension, $fileNameToStore, $fileData) = $list;
+
+            $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
+            $image = Image::make($data_url);
+            $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+
+            $user->img_name3 = $fileNameToStore;
+        }
+
+        // jobの入力
+        if(!is_null($request['job'])){
+            $user->job = $request->job;
         }
 
         $user->name = $request->name;

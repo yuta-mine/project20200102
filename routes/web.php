@@ -24,6 +24,13 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
         return view('chat');
     });
 
+    Route::get('gender/{id}', function(){
+        return view('users.gender');
+    });
+    Route::post('genderEdit/{id}', function(){
+        ddd($request);
+    });
+
 });
 
 Auth::routes();

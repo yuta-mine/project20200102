@@ -11,6 +11,7 @@
             <span v-text="m.created_at"></span>：&nbsp;
             <!-- 登録された日時 -->
             <span v-text="m.body"></span><!-- メッセージ内容 -->
+            <span v-text="m.body"></span><!-- メッセージ内容 -->
         </div>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->

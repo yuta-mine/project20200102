@@ -14,7 +14,7 @@ class AddColumnToUsers2 extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('img_name3');
+            //$table->dropColumn('img_name3');
         });
     }
 
