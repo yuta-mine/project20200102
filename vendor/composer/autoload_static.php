@@ -433,6 +433,7 @@ class ComposerStaticInitcb0a8aa37c97ed157874e3a7dbb23bb3
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Constant\\Status' => __DIR__ . '/../..' . '/app/Constant/Status.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -442,6 +443,7 @@ class ComposerStaticInitcb0a8aa37c97ed157874e3a7dbb23bb3
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\ReactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReactionController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -459,6 +461,7 @@ class ComposerStaticInitcb0a8aa37c97ed157874e3a7dbb23bb3
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Reaction' => __DIR__ . '/../..' . '/app/Reaction.php',
         'App\\Services\\CheckExtensionServices' => __DIR__ . '/../..' . '/app/Servides/CheckExtensionServices.php',
         'App\\Services\\FileUploadServices' => __DIR__ . '/../..' . '/app/Servides/FileUploadServices.php',
         'App\\Task' => __DIR__ . '/../..' . '/app/Task.php',

@@ -16,7 +16,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UserController@show')->name('users.show');
     Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
     Route::post('update/{id}', 'UserController@update')->name('users.update');
-    
+
     // 下記のルートを追加 ユーザーのセッティング画面に遷移する maru
     Route::get('show/{id}/setting', 'UserController@setting')->name('users.setting');
 });
@@ -29,6 +29,7 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
 // 会員登録時のページ遷移しながらデータ保持して次へ行く処理 shino
 Route::get('/name', 'Auth\RegisterController@name')->name('name');
 
@@ -45,3 +46,14 @@ Route::get('/picture', 'Auth\RegisterController@picture')->name('picture');
 Route::post('/register', 'Auth\RegisterController@create')->name('registerend');
 
 // 会員登録時のページ遷移しながらデータ保持して次へ行く処理 ここまで shino
+=======
+
+//likeしたidをReactionControllerのcreateメソッドに送信 mine
+Route::group(['prefix' => 'home', 'middleware' => 'auth'], function () {
+    Route::post('/', 'ReactionController@create')->name('users.like');
+});
+
+
+//ajaxでlikeした場合
+// Route::post('/like', 'ReactionController@create')->name('users.like');
+>>>>>>> 9ea0f5df6526459dd4dbb7fd7e2eabfb350641dd
