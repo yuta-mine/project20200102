@@ -1,14 +1,22 @@
   @extends('layouts.homelayout')
   <style>
-      .likebtn,
       .dislikebtn {
-          /* position: absolute; */
+          position: absolute;
           color: gray;
           background-color: skyblue;
       }
 
+      .likebtn {
+          position: absolute;
+          color: #FD5068;
+      }
+
       .btn_hidden {
           visibility: hidden;
+      }
+
+      .text-age {
+          font-size:20px;
       }
   </style>
 
@@ -30,7 +38,7 @@
                   <!-- 写真 -->
                   <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
-                  <div class="username">{{ $user->name }}{{ $user->age }}</div>
+                  <div class="username">{{ $user->name }} <span class="text-age">{{ $user->age }}<span></div>
 
                   <!-- 距離 -->
                   <div class="userdistance">{{ $user->distance }}</div>
@@ -49,12 +57,12 @@
           <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>
               <button class="dislikebtn">NOPE</button>
           </a>
-          <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>
-              <div id="likebtn_area">
-                  @foreach($users as $user)
-                  <button class="likebtn">{{ $user->id }}</button>
-                  @endforeach
-              </div>
+          <a id="likebtn_area" href=" #" class="like">
+
+              @foreach($users as $user)
+              <button class="likebtn" value="{{ $user->id }}"><i class="fas fa-heart fa-2x"></i></button>
+              @endforeach
+
           </a>
           <!-- <a href=" home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a> -->
       </div>
@@ -64,7 +72,8 @@
   <script>
       $('.likebtn').on('click', function() {
           //クリック時に一番上にあるボタンを隠す
-          var likebutton = this.innerText;
+          //var likebutton = this.innerText;
+          var likebutton = this.getAttribute('value');
           //   $(this).addClass('btn_hidden');
 
 
