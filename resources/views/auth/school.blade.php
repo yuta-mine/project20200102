@@ -96,7 +96,7 @@
 
 <body>
   <h2>空欄</h2>
-  <div><i class="fas fa-times"></i></div>
+  <div><a href="{{ route('login') }}"><i class="fas fa-times"></i></a></div>
   <h1>学歴</h1>
   <form action="hobby" method="POST">
     {{ csrf_field() }}

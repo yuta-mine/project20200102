@@ -14,6 +14,7 @@ use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices; //拡張子を判別するファイル
 use App\Services\FileUploadServices;
 use Illuminate\Http\Request; //データ受け渡し処理時のRequestを使うためshino
+use Illuminate\Support\Facades\Auth;
 class RegisterController extends Controller
 {
     /*
@@ -88,7 +89,7 @@ class RegisterController extends Controller
 
         //画像を横400px, 縦400pxにリサイズし保存
         $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
-
+        // ddd($data);
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -104,9 +105,12 @@ class RegisterController extends Controller
             'hobby5' => $data['hobby5'],
             'img_name' => $fileNameToStore,
         ]);
+        // Eメールとパスワードを基にHomeへリダイレクト
+        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+            return redirect()->intended('home');
+        }
 
-        // return redirect()->intended($this->redirectPath());
-        return view('auth.login'); //ログイン画面へ
+        // return view('auth.login'); //ログイン画面へ
     }
 
     // 会員登録でページ遷移しながらデータは保持する関数　ここからshino

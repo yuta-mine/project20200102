@@ -26,8 +26,10 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
 
-        $myEmail = Auth::user()->email;
+        // ここでprofile編集時の入力データのチェックをやってる maru
 
+        $myEmail = Auth::user()->email;
+ 
         return [
             'name' => 'required|string|max:255',
             'email' => [Rule::unique('users', 'email')->whereNot('email', $myEmail)],

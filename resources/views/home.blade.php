@@ -14,6 +14,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('scss/jTinder.scss') }}" rel="stylesheet"> -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+        * {
+            text-decoration: none;
+            color: gray;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,8 +28,8 @@
         <nav class="nav">
             <ul>
                 <li class="personIcon">
-                    <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">aa</i></a></li>
-                <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
+                    <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x"></i></a></li>
+                <!-- <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li> -->
             </ul>
         </nav>
         <div id="tinderslide">
@@ -34,9 +41,9 @@
                     <!-- 写真 -->
                     <img src="/storage/images/{{ $user->img_name}}">
                     <!-- 名前 -->
-                    <div class="userName">{{ $user->name }}</div>
+                    <div class="userName">{{ $user->name }} {{ $user->age }}</div>
                     <!-- 年齢 -->
-                    <div class="userage">{{ $user->age }}</div>
+                    <!-- <div class="userage">{{ $user->age }}</div> -->
                     <!-- 距離 -->
                     <!-- <div class="userdistance">{{ $user->distance }}</div> -->
                     <!-- 自己紹介 -->
@@ -45,9 +52,11 @@
                     <div class="like"></div>
                     <div class="dislike"></div>
                 </li>
+
                 @endforeach
+                <div class="noUser">近くにお相手がいません。</div>
             </ul>
-            <div class="noUser">近くにお相手がいません。</div>
+
         </div>
         <div class="actions" id="actionBtnArea">
             <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
@@ -65,6 +74,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 
 </html>

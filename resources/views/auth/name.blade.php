@@ -103,7 +103,7 @@
 
 <body>
     <h2>空欄</h2>
-    <div><i class="fas fa-times"></i></div>
+    <div><a href="{{ route('login') }}"><i class="fas fa-times"></i></a></div>
     <!-- <header class="header"> -->
     <h1>表示ネーム</h1>
     <!-- </header> -->

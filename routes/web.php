@@ -16,9 +16,14 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UserController@show')->name('users.show');
     Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
     Route::post('update/{id}', 'UserController@update')->name('users.update');
-    
+
     // 下記のルートを追加 ユーザーのセッティング画面に遷移する maru
     Route::get('show/{id}/setting', 'UserController@setting')->name('users.setting');
+    // 下記のルートを追加 チャットルームへ移動する suke
+    Route::get('chat/{id}',function(){
+        return view('chat');
+    });
+
 });
 
 Auth::routes();
@@ -28,6 +33,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('ajax/chat', 'Ajax\ChatController@index');
+// メッセージ一覧を取得
+Route::post('ajax/chat', 'Ajax\ChatController@create');
+// チャット登録
 
 // 会員登録時のページ遷移しながらデータ保持して次へ行く処理 shino
 Route::get('/name', 'Auth\RegisterController@name')->name('name');
@@ -45,3 +56,4 @@ Route::get('/picture', 'Auth\RegisterController@picture')->name('picture');
 Route::post('/register', 'Auth\RegisterController@create')->name('registerend');
 
 // 会員登録時のページ遷移しながらデータ保持して次へ行く処理 ここまで shino
+

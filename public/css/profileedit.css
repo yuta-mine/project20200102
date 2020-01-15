@@ -1,8 +1,3 @@
-/* .photo-blocks{
-    display: flex;
-    justify-content: space-between;
-} */
-
 .photo-block {
     width:28%;
     /* hは labelのpaddingのところで調整 */
@@ -15,14 +10,16 @@
 }
 
 .files label {
-    outline: 2px dashed #92b0b3;
+    /* outline: 2px dashed #92b0b3;
     outline-offset: -2px;
     -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; */
     padding: 60px 0px 85px 35%;
     text-align: center !important;
     margin: 0;
     width: 100%;
+    border: 5px solid #d4d4d4;
+    border-style: dashed;
     border-radius: 10px;
 }
 
@@ -35,10 +32,32 @@
  }
 
 .files{ 
-    position:relative
+    position:relative;
+    line-height: 7px; 
+  /* 画像のサイズ調整で取り急ぎ */
 }
 
 .files:after {  
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    right: 0;
+    height: 100%;
+    /* content: ""; */
+    background-size: cover;
+    /* background-image: url(https://rr.img.naver.jp/mig?src=http%3A%2F%2Fimgcc.naver.jp%2Fkaze%2Fmission%2FUSER%2F20150730%2F26%2F2470876%2F19%2F423x558xec040783398fa44c15108f00.jpg%2F300%2F600&twidth=300&theight=600&qlt=80&res_format=jpg&op=r); */
+    /* background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png); */
+    /* background-image: url(https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg); */
+    /* upload画像はここにセット */
+    /* display: block; */
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.user-img {
     pointer-events: none;
     position: absolute;
     top: 0;
@@ -56,13 +75,16 @@
     margin: 0 auto;
     background-repeat: no-repeat;
     border-radius: 10px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 
 .color input{ 
     background-color:#f1f1f1;
 }
 
-.files:before {
+/* .files:before {
     position: absolute;
     bottom: 10px;
     left: 0;  
@@ -70,14 +92,13 @@
     width: 100%;
     right: 0;
     height: 57px;
-    /* content: " or drag it here. "; */
     display: block;
     margin: 0 auto;
     color: #2ea591;
     font-weight: 600;
     text-transform: capitalize;
-    text-align: center;
-}
+    text-align: center; */
+/* } */
 
 .hidden {
     display: none;
