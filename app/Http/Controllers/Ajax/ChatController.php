@@ -31,3 +31,4 @@ class ChatController extends Controller
         event(new MessageCreated($message));
     }
 }
+

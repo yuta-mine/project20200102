@@ -24,31 +24,28 @@
             <!-- <span v-text="m.created_at"></span>：&nbsp; -->
             <!-- 登録された日時 -->
             <!-- <span v-text="m.user_id"></span> -->
-            <!-- <span v-text="m.name"></span> -->
-            <!-- <div class="icon-box">
-                <img :src="m.img_name" alt="img_icon" width="40px" height="40px" class="icon">
-            </div> -->
             <!-- メッセージ内容 -->
             <div class="balloon-set-box right" v-if="m.user_id == {{Auth::id()}}">
-                <!-- 自分 <div class="icon-box">
-                    <img :src="m.img_name" alt="img_icon" width="40px" height="40px" class="icon">
-                </div> -->
                 <span class="balloon_right" v-text="m.body"></span></div>
+            <!-- <span class="time_right" v-text="m.created_at"></span> -->
+            <!-- 自分のメッセージ -->
             <div class="balloon-set-box left" v-else>
-                 <div class="icon-box">
+                <div class="icon-box">
                     <img :src="m.img_name" alt="img_icon" width="40px" height="40px" class="icon">
                 </div>
-                <span class="balloon_left" v-text="m.body"></span></div>
+                <span class="balloon_left" v-text="m.body"></span>
+                <!-- <span class="time_left" v-text="m.created_at"></span> -->
+                <!-- 相手のメッセージ -->
+            </div>
+
         </div>
 
 
         <div class="inputWithIcon">
             <input type="text" v-model="message" placeholder="メッセージを入力">
-            <!-- <textarea v-model="m.user_id"></textarea> -->
             <!-- <textarea v-model="message"></textarea> -->
             <i aria-hidden="true" @click="send()">送信</i>
-            <!-- <br>
-            <button type="button" @click="send()">送信</button> -->
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>

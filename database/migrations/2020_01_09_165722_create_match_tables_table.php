@@ -15,6 +15,8 @@ class CreateMatchTablesTable extends Migration
     {
         Schema::create('match_tables', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('from_user');
+            $table->integer('to_user');
             $table->timestamps();
         });
     }

@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
-
 {
-
     public function index(){
         $user = Auth::user();   #ログインユーザー情報を取得します。
         return view('chat', ['user' => $data]);

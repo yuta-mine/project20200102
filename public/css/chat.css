@@ -9,6 +9,13 @@
   flex-direction: row-reverse; /* アイコンと吹き出しの並びを入れ替える */
 }
 
+.time_right{
+float: right;
+}
+.time_left{
+float: left;
+}
+
 
 .balloon_left {
   position: relative; /* 三角の位置を固定するために設定 */
