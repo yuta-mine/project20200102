@@ -62,13 +62,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
-      //   $('.dislikebtn').on('click', function() {
-      //   const likebutton = $('.dislikebtn').innerText;
-      //   console.log($('.likebtn').innerText);
-      //   var max = Math.max(likebutton);
-      //   $('max').addClass('btn_hidden');
-      //   });
-
       $('.likebtn').on('click', function() {
           //クリック時に一番上にあるボタンを隠す
           var likebutton = this.innerText;
@@ -87,9 +80,7 @@
               type: 'POST',
               data: {
                   dataval: likebutton,
-                  //   to_user: to_user,
-                  //   from_user: from_user,
-                  //   reaction: reaction,
+
               },
           }).done(function(data) {
               console.log('success');
@@ -98,8 +89,5 @@
           });
       });
   </script>
-  <!-- <script>
-      var usersNum = <?= $userCount ?>;
-      var from_user_id = <?= $from_user ?>;
-  </script> -->
+
   @endsection

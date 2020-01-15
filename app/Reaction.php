@@ -23,18 +23,4 @@ class Reaction extends Model
         'created_at',
         'status',
     ];
-
-    // 自動的にインクリメントIDと更新日時が作成するのを否定
-    // public $incrementing = false;  // インクリメントIDを無効化
-    // public $timestamps = false; // update_at, created_at を無効化
-
-    // public function toUserId()
-    // {
-    //     return $this->belongsTo('App\User', 'to_user', 'id');
-    // }
-
-    // public function fromUserId()
-    // {
-    //     return $this->belongsTo('App\User', 'from_user', 'id');
-    // }
 }
