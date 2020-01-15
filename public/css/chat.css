@@ -1,0 +1,130 @@
+.balloon-set-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.balloon-set-box.left { /* 左 */
+  flex-direction: row;
+}
+.balloon-set-box.right { /* 右 */
+  flex-direction: row-reverse; /* アイコンと吹き出しの並びを入れ替える */
+}
+
+.time_right{
+float: right;
+}
+.time_left{
+float: left;
+}
+
+
+.balloon_left {
+  position: relative; /* 三角の位置を固定するために設定 */
+  display: inline-block;
+  max-width: 300px;
+  margin: 10px 20px 20px; /* 上 左右 下のマージン */
+  padding: 8px 15px; /* ふきだし内の余白 */
+  background: rgb(255, 122, 200); /* 背景色 */
+  text-align: left; /* テキストの揃え */
+  border-radius: 15px;
+}
+
+.balloon_right {
+  position: relative; /* 三角の位置を固定するために設定 */
+  display: inline-block;
+  max-width: 300px;
+  margin: 10px 20px 20px; /* 上 左右 下のマージン */
+  padding: 8px 15px; /* ふきだし内の余白 */
+  background: #f0f0f0; /* 背景色 */
+  text-align: left; /* テキストの揃え */
+  border-radius: 15px;
+}
+
+.balloon_left::after {
+  content: '';
+  border: 14px solid transparent;
+  border-top-color:  rgb(255, 122, 200);
+  position: absolute;
+  top: 0;
+}
+
+.balloon_right::after {
+  content: '';
+  border: 14px solid transparent;
+  border-top-color: #f0f0f0;
+  position: absolute;
+  top: 0;
+}
+.left .balloon_left::after { /* 左側からの三角の位置 */
+  left: -10px;
+}
+.right .balloon_right::after { /* 右側からの三角の位置 */
+  right: -10px;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+
+
+input[type="text"] {
+  width: 100%;
+  border: 3px solid #aaa;
+  border-radius: 18px;
+  /* margin: 8px 0; */
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: rgb(248, 77, 177);
+  box-shadow: 0 0 8px 0 rgb(248, 77, 177);
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 25px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon i {
+  position: absolute;
+  /* left: 0; */
+  right: 10px;
+  top: 3px;
+  padding: 9px 8px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.inputWithIcon input[type="text"]:focus + i {
+  color: rgb(248, 77, 177);
+}
+
+.inputWithIcon.inputIconBg i {
+  background-color: #aaa;
+  color: #fff;
+  padding: 9px 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.inputWithIcon.inputIconBg input[type="text"]:focus + i {
+  color: #fff;
+  background-color: rgb(248, 77, 177);
+}
+
+.inputWithIcon {
+width: 100%;
+/* height: 100px; */
+position: fixed;
+bottom: 0;
+}

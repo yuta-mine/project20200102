@@ -13,7 +13,6 @@
             <div class="userProfileImg_description">画像をアップロード</div>
             <i class="fas fa-camera fa-3x"></i>
             <input type="file" id="file_photo" name="image">
-
         </label>
         <div class="userImgPreview" id="userImgPreview">
             <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
@@ -44,12 +43,10 @@
             <textarea class="form-control" name="self_introduction" rows="10">{{$user->self_introduction}}
             </textarea>
         </div>
-</div>
 
-<div class="text-center">
-    <button type="submit" class="btn submitBtn">変更する</button>
-</div>
-</form>
-</div>
+        <div class="text-center">
+            <button type="submit" class="btn submitBtn">変更する</button>
+        </div>
+    </form>
 </div>
 @endsection

@@ -33,7 +33,7 @@
                 <button type="submit" class="loginBtn">ログイン</button>
             </div>
             <div class="linkToLogin">
-                <a href="{{ route('register') }}">アカウント作成はこちら</a>
+                <a href="{{ route('name') }}">アカウント作成はこちら</a>
             </div>
         </form>
     </div>

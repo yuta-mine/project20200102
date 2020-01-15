@@ -16,7 +16,10 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->text('comment');
+            $table->integer('match_id')->nullable();
+            $table->string('name');
+            $table->string('img_name')->nullable();
+            $table->text('body');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        // Schema::dropIfExists('messages');
     }
 }

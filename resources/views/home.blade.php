@@ -31,9 +31,8 @@
                   <!-- 写真 -->
                   <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
-                  <div class="userName">{{ $user->name }}</div>
-                  <!-- 年齢 -->
-                  <!-- <div class="userage">{{ $user->age }}</div> -->
+
+                  <!-- <div class="username">{{ $user->name }}{{ $user->age }}</div> -->
                   <!-- 距離 -->
                   <!-- <div class="userdistance">{{ $user->distance }}</div> -->
                   <!-- 自己紹介 -->
@@ -67,6 +66,7 @@
           var likebutton = this.innerText;
           $(this).addClass('btn_hidden');
 
+
           // 認証確認
           $.ajaxSetup({
               headers: {
@@ -89,5 +89,4 @@
           });
       });
   </script>
-
   @endsection

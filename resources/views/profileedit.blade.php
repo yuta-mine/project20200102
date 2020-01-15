@@ -2,45 +2,45 @@
 @section('content')
 
 @push('css')
-    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/profileedit.css') }}" rel="stylesheet">
+<link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
+<link href="{{ secure_asset('css/profileedit.css') }}" rel="stylesheet">
 @endpush
 
 <div class="panel-body">
     <!-- バリデーションエラーの表⽰に使⽤するエラーファイル-->
     <!-- タスク登録フォーム -->
-    <form action="{{ route('users.update', $user->id)}}" method="POST" class="formhorizontal">
-        @method('PUT')
+    <h1>PROFILE EDIT</h1>
+    <!-- <form method="POST" action="/users/update/{{ $user->id }}" enctype="multipart/form-data" class="formhorizontal"> -->
+    <!-- <form method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data" class="formhorizontal"> -->
+    <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}" enctype="multipart/form-data">
         @csrf
-        <h1>PROFILE EDIT</h1>
-
         <div class="form-group">
-            <!--  -->
             <div class="photo-blocks d-flex justify-content-around">
                 <div class="photo-block">
-                    <form method="post" action="#" id="#">
-                        <div class="form-group files rounded">
-                            <label for="upload1"></label>
-                            <input type="file" class="form-control hidden" multiple="" id="upload1">
-                        </div>
-                    </form>
+                    <div class="form-group files rounded">
+                        <label for="upload1"></label>
+                        <input type="file" name="img_name" class="form-control hidden upload-photo" multiple="" id="upload1">
+                        <img class="user-img" src="/storage/images/{{$user -> img_name}}" alt="">
+                    </div>
                 </div>
+
                 <div class="photo-block">
-                    <form method="post" action="#" id="#">
-                        <div class="form-group files color">
-                            <label for="upload2"></label>
-                            <input type="file" class="form-control hidden" multiple="" id="upload2">
-                        </div>
-                    </form>
+                    <div class="form-group files rounded">
+                        <label for="upload2"></label>
+                        <input type="file" name="img_name2" class="form-control hidden upload-photo" multiple="" id="upload2">
+                        <img id="thumbnail" class="user-img" src="/storage/images/{{$user -> img_name2}}" alt="">
+                    </div>
                 </div>
+
                 <div class="photo-block">
-                    <form method="post" action="#" id="#">
-                        <div class="form-group files color">
-                            <label for="upload3"></label>
-                            <input type="file" class="form-control hidden" multiple="" id="upload3">
-                        </div>
-                    </form>
+                    <div class="form-group files rounded">
+                        <label for="upload3"></label>
+                        <input type="file" class="form-control hidden upload-photo" multiple="" id="upload3">
+                        <img id="" class="user-img" src="" alt="">
+                    </div>
                 </div>
+
+
             </div>
 
             <div class="infotext">ホールド、ドラッグ、ドロップして写真を並び替えることができます</div>
@@ -49,7 +49,7 @@
                 <a class="button add-media-button tinder-color" href="#">メディアを追加する</a>
             </div>
 
-            <!--  -->
+
             <div class="col-sm-6 form-primary">
                 <div id="smartPhoto" class="form-control d-flex justify-content-between align-items-center">
                     <div>スマートフォト</div>
@@ -62,14 +62,18 @@
 
             <div class="col-sm-6 form-primary">
                 <label for="comment" class="col-sm-3 control-label">{{$user->name}}について紹介</label>
-                <textarea type="text" name="bio" id="bio" class="form-control" value="">yrsrt</textarea>
+                <textarea type="text" name="self_introduction" id="self_introduction" class="form-control" value="">{{$user->self_introduction}}</textarea>
             </div>
             <div class="col-sm-6 form-primary">
                 <label for="user_interests" class="col-sm-3 control-label">
                     興味
                 </label>
                 <div class="form-control d-flex justify-content-between align-items-center">
-                    <div>fav, fav2, fav3</div>
+                    <div>{{ $user->hobby1 }}</div>
+                    <div>{{ $user->hobby2 }}</div>
+                    <div>{{ $user->hobby3 }}</div>
+                    <div>{{ $user->hobby4 }}</div>
+                    <div>{{ $user->hobby5 }}</div>
                     <!-- <input type="text" name="user_interests" id="user_interests" class="" value=""> -->
                     <a class="next-icon" href="" role="button" data-slide="next" onclick="
                             preventDefault();
@@ -77,7 +81,6 @@
                         ">
                         <i class="fas fa-angle-right"></i>
                     </a>
-                    <form id="interest_form" action="" method="GET" style="display: none">
                 </div>
             </div>
             <div class="col-sm-6 form-primary">
@@ -89,7 +92,7 @@
                 <input type="text" name="user_favorite" id="user_favorite" class="form-control" value="">
             </div>
             <div class="col-sm-6 form-primary">
-                <label for="user_favorite" class="col-sm-3 control-label">学校: API?</label>
+                <label for="user_favorite" class="col-sm-3 control-label">学校: {{ $user->school }}</label>
                 <input type="text" name="user_favorite" id="user_favorite" class="form-control" value="">
             </div>
             <div class="col-sm-6 form-primary">
@@ -104,17 +107,41 @@
                 <label for="user_favorite" class="col-sm-3 control-label">Spotifyアンセム</label>
                 <input type="text" name="user_favorite" id="user_favorite" class="form-control" value="">
             </div>
+
             <div class="col-sm-6 form-primary">
-                <label for="user_favorite" class="col-sm-3 control-label">性別</label>
-                <input type="text" name="user_favorite" id="user_favorite" class="form-control" value="">
+                <label for="name"" class=" col-sm-3 control-label">名前</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}">
+            </div>
+            <div class="col-sm-6 form-primary">
+                <label for="sex" class="col-sm-3 control-label">性別</label>
+                <input type="text" name="sex" id="sex" class="form-control" value="{{ $user->sex }}">
+            </div>
+            <div class="col-sm-6 form-primary">
+                <label for="email" class="col-sm-3 control-label">email</label>
+                <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}">
             </div>
         </div>
-        <!-- タスク登録ボタン -->
+
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">完了</button>
             </div>
         </div>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).on("change", ".upload-photo", function(e) {
+            let currentNode = $(this)[0];
+            var reader;
+            if (e.target.files.length) {
+                reader = new FileReader;
+                reader.onload = function(e) {
+                    currentNode.nextElementSibling.setAttribute('src', e.target.result);
+                };
+                return reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+    </script>
 </div>
 @endsection

@@ -14,6 +14,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
 </head>
 
