@@ -22,15 +22,19 @@ class ChatController extends Controller
     }
 
 
-    // チャットるーむ作成用
-    public function create(){
+    // チャットるーむ作成用 $id=matchid
+    public function create($id){
         // ログインしてるユーザー取得
-        $user = User::where('id', Auth::user()->id)->get();
-        
-        $liked_user = Match_table::all();
-        $matches = Match_table::all();
-        
-
+        // $currentUserId = User::where('id', Auth::user()->id)->get();
+        // $likedUserId = Match_table::exists('to_user', )
+        $match = Match_table::find($id);
+        $user1Id = $match->from_user;
+        $user2Id = $match->to_user;
+        if(Auth::user()->id == $user1Id || Auth::user()->id == $user2Id){
+            return redirect()->intended('chat/{$id}');
+        }else{
+            return view('home');
+        }
     //     if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
     //         return redirect()->intended('home');
     //     }
