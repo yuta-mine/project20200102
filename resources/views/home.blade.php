@@ -2,7 +2,7 @@
   <style>
       .likebtn,
       .dislikebtn {
-          position: absolute;
+          /* position: absolute; */
           color: gray;
           background-color: skyblue;
       }
@@ -32,9 +32,9 @@
                   <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
 
-                  <!-- <div class="username">{{ $user->name }}{{ $user->age }}</div> -->
+                  <div class="username">{{ $user->name }}{{ $user->age }}</div>
                   <!-- 距離 -->
-                  <!-- <div class="userdistance">{{ $user->distance }}</div> -->
+                  <div class="userdistance">{{ $user->distance }}</div>
                   <!-- 自己紹介 -->
                   <div class="selfintro">{{ $user->self_introduction }}</div>
 
@@ -46,16 +46,18 @@
       </div>
 
       <div class="actions" id="actionBtnArea">
-          <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
+          <!-- <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a> -->
           <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>
               <button class="dislikebtn">NOPE</button>
           </a>
           <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>
-              @foreach($users as $user)
-              <button class="likebtn">{{ $user->id }}</button>
-              @endforeach
+              <div id="likebtn_area">
+                  @foreach($users as $user)
+                  <button class="likebtn">{{ $user->id }}</button>
+                  @endforeach
+              </div>
           </a>
-          <a href=" home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a>
+          <!-- <a href=" home_detail.blade" class="detail"><i class="fas fa-times fa-2x"></i>詳細</a> -->
       </div>
   </div>
 
@@ -64,7 +66,7 @@
       $('.likebtn').on('click', function() {
           //クリック時に一番上にあるボタンを隠す
           var likebutton = this.innerText;
-          $(this).addClass('btn_hidden');
+          //   $(this).addClass('btn_hidden');
 
 
           // 認証確認

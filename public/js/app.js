@@ -47020,6 +47020,9 @@ $('.actions .like, .actions .dislike').click(function (e) {
       current_pane = index;
     },
     next: function next() {
+      currentKikeBtn = document.getElementById('likebtn_area').lastElementChild; //現在のLikeボタンのDOM取得
+
+      currentKikeBtn.parentNode.removeChild(currentKikeBtn);
       return this.showPane(current_pane - 1);
     },
     dislike: function dislike() {
