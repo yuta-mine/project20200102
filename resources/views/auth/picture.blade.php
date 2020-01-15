@@ -153,7 +153,7 @@
 
 <body>
   <h2>空欄</h2>
-  <div><i class="fas fa-angle-left"></i></div>
+  <div><a href="{{ route('login') }}"><i class="fas fa-times"></i></a></div>
   <h1>写真を追加</h1>
   <div class="picture_area_wrapper">
 
@@ -176,7 +176,7 @@
       <input type="text" hidden name="hobby5" value="{{$post_data->hobby5}}">
       <!-- データ受け渡し用非表示部分 -->
 
-      <div class="btn"><button type="submit">はじめる</button></div>
+      <div class="btn"><button type="submit">ログインする</button></div>
     </form>
 
   </div>

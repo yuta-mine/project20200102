@@ -136,7 +136,7 @@
 
 <body>
   <h2>空欄</h2>
-  <div><i class="fas fa-angle-left"></i></div>
+  <div><a href="{{ route('login') }}"><i class="fas fa-times"></i></a></div>
   <div class="skip">スキップする</div>
   <h1>つながろう<br>Tinderで</h1>
   <p>自分の好きな事をTinderで出会った友達にシェアしてみない？ここから選んでプロフィールにシェアしよう！</p>
@@ -160,8 +160,7 @@
   </form>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
   <script>
-    let hobby = [
-      {
+    let hobby = [{
         value: 'camera',
         text: 'カメラ'
       },

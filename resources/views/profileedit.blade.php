@@ -69,7 +69,12 @@
                     興味
                 </label>
                 <div class="form-control d-flex justify-content-between align-items-center">
-                    <div>fav, fav2, fav3</div>
+                    <div>{{ $user->hobby1 }}</div>
+                    <div>{{ $user->hobby2 }}</div>
+                    <div>{{ $user->hobby3 }}</div>
+                    <div>{{ $user->hobby4 }}</div>
+                    <div>{{ $user->hobby5 }}</div>
+                    <!-- <input type="text" name="user_interests" id="user_interests" class="" value=""> -->
                     <a class="next-icon" href="" role="button" data-slide="next" onclick="
                             preventDefault();
                             document.getElementById('interest_form').submit();
@@ -87,7 +92,7 @@
                 <input type="text" name="user_favorite" id="user_favorite" class="form-control" value="">
             </div>
             <div class="col-sm-6 form-primary">
-                <label for="user_favorite" class="col-sm-3 control-label">学校: API?</label>
+                <label for="user_favorite" class="col-sm-3 control-label">学校: {{ $user->school }}</label>
                 <input type="text" name="user_favorite" id="user_favorite" class="form-control" value="">
             </div>
             <div class="col-sm-6 form-primary">

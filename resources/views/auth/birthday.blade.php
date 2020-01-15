@@ -136,7 +136,7 @@
 
 <body>
   <h2>空欄</h2>
-  <div><i class="fas fa-angle-left"></i></div>
+  <div><a href="{{ route('login') }}"><i class="fas fa-times"></i></a></div>
   <h1>年齢</h1>
   <form action="gender" method="post" id="form">
     {{ csrf_field() }}

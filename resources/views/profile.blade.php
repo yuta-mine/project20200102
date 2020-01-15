@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @push('css')
-    <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
+<link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
 @endpush
 
 <div class="panel-body">
@@ -10,7 +10,7 @@
     <!-- タスク登録フォーム -->
     <div class="form-group">
 
-        <div>NOT Vue.js</div>
+        <!-- <div>NOT Vue.js</div> -->
         <div class="user-info arc">
             <div class="top-img-area mx-auto">
                 <!-- <img src="{{$user->profile_img_url}}" alt=""> -->
@@ -18,7 +18,7 @@
             </div>
             <div id="bio" class="bio">
                 <span class="name">{{ $user->name }}</span>
-                <span class="age"></span>
+                <span class="age">{{ $user->age }}</span>
             </div>
 
             <div class="user-menu">
