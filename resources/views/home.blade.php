@@ -23,14 +23,13 @@
           </ul>
       </nav>
       <div id="tinderslide">
-          <!-- @csrf -->
           <ul>
               @foreach($users as $user)
               <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
               <li data-user_id="{{ $user->id }}">
                   @csrf
                   <!-- 写真 -->
-                  <!-- <img src="/storage/images/{{ $user->img_name }}"> -->
+                  <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
                   <div class="userName">{{ $user->name }}</div>
                   <!-- 年齢 -->
@@ -39,17 +38,19 @@
                   <!-- <div class="userdistance">{{ $user->distance }}</div> -->
                   <!-- 自己紹介 -->
                   <div class="selfintro">{{ $user->self_introduction }}</div>
+
+                  <div class="like"></div>
+                  <div class="dislike"></div>
               </li>
               @endforeach
           </ul>
-          <div class="like"></div>
-          <div class="dislike"></div>
-
       </div>
 
       <div class="actions" id="actionBtnArea">
           <a href="#" class="back"><i class="fas fa-times fa-2x"></i>戻る</a>
-          <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>NOPE</a>
+          <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i>
+              <button class="dislikebtn">NOPE</button>
+          </a>
           <a href="#" class="like"><i class="fas fa-heart fa-2x"></i>
               @foreach($users as $user)
               <button class="likebtn">{{ $user->id }}</button>
@@ -61,17 +62,12 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
-      //   $('.back').on('click', function() {
-      //       var likebutton = $('.likebtn').innerText;
-      //       $('.likebtn').removeClass('btn_hidden');
+      //   $('.dislikebtn').on('click', function() {
+      //   const likebutton = $('.dislikebtn').innerText;
+      //   console.log($('.likebtn').innerText);
+      //   var max = Math.max(likebutton);
+      //   $('max').addClass('btn_hidden');
       //   });
-
-      $('.dislike').on('click', function() {
-          const likebutton = $('.likebtn').innerText;
-          console.log(likebutton);
-          //   var max = Math.max(likebutton);
-          //   $('max').addClass('btn_hidden');
-      });
 
       $('.likebtn').on('click', function() {
           //クリック時に一番上にあるボタンを隠す
@@ -91,6 +87,9 @@
               type: 'POST',
               data: {
                   dataval: likebutton,
+                  //   to_user: to_user,
+                  //   from_user: from_user,
+                  //   reaction: reaction,
               },
           }).done(function(data) {
               console.log('success');
@@ -99,5 +98,8 @@
           });
       });
   </script>
-
+  <!-- <script>
+      var usersNum = <?= $userCount ?>;
+      var from_user_id = <?= $from_user ?>;
+  </script> -->
   @endsection

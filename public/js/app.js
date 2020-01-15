@@ -37078,7 +37078,25 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$("#tinderslide").jTinder();
+$("#tinderslide").jTinder({
+  onDislike: function onDislike(item) {
+    currentUserIndex++;
+    checkUserNum();
+    var to_user = item[0].dataset.user_id;
+    postReaction(to_user, 'dislike');
+  },
+  onLike: function onLike(item) {
+    currentUserIndex++;
+    checkUserNum();
+    var to_user = item[0].dataset.user_id;
+    postReaction(to_user, 'like');
+  },
+  animationRevertSpeed: 200,
+  animationSpeed: 400,
+  threshold: 1,
+  likeSelector: '.like',
+  dislikeSelector: '.dislike'
+});
 $('.actions .like, .actions .dislike').click(function (e) {
   e.preventDefault();
   $("#tinderslide").jTinder($(this).attr('class'));
