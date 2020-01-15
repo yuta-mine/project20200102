@@ -23,7 +23,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
    
 
 });
-// まずchat/{id}にmatchtableのidをぶち込む。<=
+// まずchat/{id}にmatchtableのidをぶち込む。<=マッチ画面から遷移するときに渡してもらう
 // そしてChatController@〇〇に送って、そのcontroller内の〇〇関数で、マッチテーブルidを基に引っ張ってきた2つのuseridのユーザーのみのメッセージが表示されるチャットルームにリダイレクトする。
 
 // Route::get('chat/{id}', ChatController@create);

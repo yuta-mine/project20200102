@@ -26,11 +26,13 @@ class ChatController extends Controller
     public function create(){
         // ログインしてるユーザー取得
         $user = User::where('id', Auth::user()->id)->get();
-        $match = \DB::table('match_tables')->get();
+        
+        $liked_user = Match_table::all();
+        $matches = Match_table::all();
+        
 
-
-        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
-            return redirect()->intended('home');
-        }
+    //     if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+    //         return redirect()->intended('home');
+    //     }
     }
 }
