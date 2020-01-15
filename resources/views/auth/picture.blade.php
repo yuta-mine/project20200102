@@ -229,7 +229,7 @@
         let y = Math.floor($('div').eq(i).offset().top);
 
         let picPosition = [{
-            x: 34,
+            x: 36,
             y: 137,
             name: 'image'
           },

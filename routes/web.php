@@ -20,8 +20,14 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     // 下記のルートを追加 ユーザーのセッティング画面に遷移する maru
     Route::get('show/{id}/setting', 'UserController@setting')->name('users.setting');
     // 下記のルートを追加 チャットルームへ移動する suke
+<<<<<<< HEAD
    
 
+=======
+    Route::get('chat/{id}', function () {
+        return view('chat');
+    });
+>>>>>>> a8fde05d56762323a7fa3b18cb9de5fd35d9b511
 });
 // まずchat/{id}にmatchtableのidをぶち込む。<=
 // そしてChatController@〇〇に送って、そのcontroller内の〇〇関数で、マッチテーブルidを基に引っ張ってきた2つのuseridのユーザーのみのメッセージが表示されるチャットルームにリダイレクトする。
@@ -35,6 +41,13 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//likeしたidをReactionControllerのcreateメソッドに送信 mine
+Route::group(['prefix' => 'home', 'middleware' => 'auth'], function () {
+    Route::post('/', 'ReactionController@create')->name('users.like');
+});
 
 
 Route::get('ajax/chat', 'Ajax\ChatController@index');
@@ -57,4 +70,8 @@ Route::get('/picture', 'Auth\RegisterController@picture')->name('picture');
 
 Route::post('/register', 'Auth\RegisterController@create')->name('registerend');
 
+<<<<<<< HEAD
 // 会員登録時のページ遷移しながらデータ保持して次へ行く処理 ここまで shino
+=======
+// 会員登録時のページ遷移しながらデータ保持して次へ行く処理 ここまで shino
+>>>>>>> a8fde05d56762323a7fa3b18cb9de5fd35d9b511
