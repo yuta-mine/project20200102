@@ -20,7 +20,7 @@
             height: 80vh;
             max-width: 95vw;
             margin: 0 10px;
-            background: url("/images/liked.png");
+            /* background: url("/images/liked.png"); */
         }
 
         #tinderslide ul {
@@ -86,7 +86,7 @@
         } 
 
         #tinderslide .noUser {
-            display: none;
+            /* display: none; */
             position: absolute;
             top: 50%;
             left: 50%;

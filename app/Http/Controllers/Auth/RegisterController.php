@@ -109,8 +109,6 @@ class RegisterController extends Controller
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
             return redirect()->intended('home');
         }
-
-        // return view('auth.login'); //ログイン画面へ
     }
 
     // 会員登録でページ遷移しながらデータは保持する関数　ここからshino
