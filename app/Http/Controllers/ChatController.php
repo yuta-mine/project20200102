@@ -24,11 +24,11 @@ class ChatController extends Controller
 
     // チャットるーむ作成用
     public function create(){
-        // ログインユーザー取得
-        $user = User::where('user_id', Auth::user()->id)
-            ->get();
-        
-        $matches = \DB::table('match_tables')->get();
+        // ログインしてるユーザー取得
+        $user = User::where('id', Auth::user()->id)->get();
+        $match = \DB::table('match_tables')->get();
+
+
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
             return redirect()->intended('home');
         }
