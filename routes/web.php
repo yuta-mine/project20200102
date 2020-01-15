@@ -64,8 +64,4 @@ Route::get('/picture', 'Auth\RegisterController@picture')->name('picture');
 
 Route::post('/register', 'Auth\RegisterController@create')->name('registerend');
 
-<<<<<<< HEAD
 // 会員登録時のページ遷移しながらデータ保持して次へ行く処理 ここまで shino
-=======
-// 会員登録時のページ遷移しながらデータ保持して次へ行く処理 ここまで shino
->>>>>>> a8fde05d56762323a7fa3b18cb9de5fd35d9b511
