@@ -58,7 +58,7 @@
                   <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
 
-                  <div class="username">{{ $user->name }} <span class="text-age">{{ $user->age }}<span></div>
+                  <div class="username">{{ $user->name }} <span class="text-age">{{ $user->age }}<span> {{ $user->id}}</div>
 
                   <!-- 距離 -->
                   <div class="userdistance">{{ $user->distance }}</div>

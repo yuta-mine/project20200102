@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\User; //追加
 use App\Match_table;
+use Auth;
+use Log;
 
 class HomeController extends Controller
 {
@@ -35,10 +37,26 @@ class HomeController extends Controller
     }
     public function list()
     {
-        $match = Match_table::all();
+        //$match = Match_table::all();
+        $myMatchesName = array();
+        $myMatchesImage = array();
+        $matchesAll = Match_table::all()->where('from_user', Auth::user()->id);
+        foreach ($matchesAll as $record){
+            $toUserId = $record->to_user;
+            $toUserRecord = User::Find($toUserId);
+            array_push($myMatchesName, $toUserRecord->name);
+            array_push($myMatchesImage, $toUserRecord->img_name);
+        }
+        
+        //$myMatches = array($myMatchesName, $myMatchesImage);
+        Log::debug($myMatchesName);
+        Log::debug($myMatchesImage);
+        //ddd($myMatches[0][1]);
+        // $data = $users->where('id', '>', 5)->get();
         //ddd($match);
         //$user = User::all();
-        return view('list', ['user' => $user]);
-        //return view('taskedit', ['task' => $task]);
+        return view('list',['myMatchesName' => $myMatchesName, 'myMatchesImage' => $myMatchesImage]);
+        //return view('list');
+        
     }
 }

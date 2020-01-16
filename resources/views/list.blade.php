@@ -87,37 +87,20 @@
   </div>
 
 
-
+  <!-- もしくはcount($array) -->
   <div class="matches">
-    <div class="user">
+    @for ($i = 0; $i < count($myMatchesName) ; $i++) <div class="user">
       <a href="" class="row">
-        <div class="img"><img src="https://2xmlabs.com/wp-content/uploads/2018/02/Screenshot_21.png" alt=""></div>
+        <div class="img"><img src="/storage/images/{{ $myMatchesImage[$i] }}" alt=""></div>
         <div>
-          <div class="name">さとみ</div>
+          <div class="name">{{ $myMatchesName[$i] }}</div>
           <div class="msg">こんにちはー！</div>
         </div>
       </a>
-    </div>
-    <div class="user">
-      <a href="" class="row">
-        <div class="img"><img src="https://www.crank-in.net/img/db/1332767_650.jpg" alt=""></div>
-        <div>
-          <div class="name">Mikako</div>
-          <div class="msg">初めまして。</div>
-        </div>
-      </a>
-    </div>
-    <div class="user">
-      <a href="" class="row">
-        <div class="img"><img src="https://www.cinemacafe.net/imgs/thumb_h1/398969.jpg" alt=""></div>
-        <div>
-          <div class="name">かすみ</div>
-          <div class="msg">明日ですか？</div>
-        </div>
-      </a>
-    </div>
-
   </div>
+  @endfor
+
+
 
 
 
