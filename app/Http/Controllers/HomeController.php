@@ -39,8 +39,12 @@ class HomeController extends Controller
     public function list()
     {
         $matchUserIDs = array();
+        $matchIDs = array();
         $matchUserNames = array();
         $matchUserImages = array();
+
+        //$matchIds = Match_table::all()->where('from_user', Auth::user()->id)->values('id')[0]->id;
+
 
         $checkExistsFromUser = DB::table('match_tables')->where('from_user', Auth::user()->id)->exists();
 
@@ -48,8 +52,10 @@ class HomeController extends Controller
             // 自分がfrom_userカラムにいたら相手をto_userからさがす
             $matchesAll = Match_table::all()->where('from_user', Auth::user()->id);
             foreach ($matchesAll as $record) {
+                $matcheID = $record->id;
                 $targetUserId = $record->to_user;
                 $targetUserRecord = User::Find($targetUserId);
+                array_push($matchIDs, $matcheID);
                 array_push($matchUserIDs, $targetUserId);
                 array_push($matchUserNames, $targetUserRecord->name);
                 array_push($matchUserImages, $targetUserRecord->img_name);
@@ -58,8 +64,10 @@ class HomeController extends Controller
             // いなかったら自分をto_userからさがし、相手をfrom_userからさがす
             $matchesAll = Match_table::all()->where('to_user', Auth::user()->id);
             foreach ($matchesAll as $record) {
+                $matcheID = $record->id;
                 $targetUserId = $record->from_user;
                 $targetUserRecord = User::Find($targetUserId);
+                array_push($matchIDs, $matcheID);
                 array_push($matchUserIDs, $targetUserId);
                 array_push($matchUserNames, $targetUserRecord->name);
                 array_push($matchUserImages, $targetUserRecord->img_name);
@@ -69,6 +77,7 @@ class HomeController extends Controller
         }
 
         return view('list',[
+            'matchIds' => $matchIDs,
             'matchUserIDs' => $matchUserIDs, 
             'matchUserNames' => $matchUserNames, 
             'matchUserImages' => $matchUserImages

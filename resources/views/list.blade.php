@@ -90,13 +90,13 @@
   <!-- もしくはcount($array) -->
   <div class="matches">
     @for ($i = 0; $i < count($matchUserNames) ; $i++) <div class="user">
-      <a href="" class="row">
-        <div class="img"><img src="/storage/images/{{ $matchUserImages[$i] }}" alt=""></div>
-        <div>
-          <div class="name">{{ $matchUserNames[$i] }}</div>
-          <div class="msg">こんにちはー！</div>
-        </div>
-      </a>
+        <a class="row" href="chat/{{ $matchIds[$i] }}">
+          <div class="img"><img src="/storage/images/{{ $matchUserImages[$i] }}" alt=""></div>
+          <div>
+            <div class="name">{{ $matchUserNames[$i] }}</div>
+            <div class="msg">こんにちはー！</div>
+          </div>
+        </a>
   </div>
   @endfor
 
