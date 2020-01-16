@@ -89,7 +89,7 @@
 
   <!-- もしくはcount($array) -->
   <div class="matches">
-    @for ($i = 0; $i < 2 ; $i++) <div class="user">
+    @for ($i = 0; $i < count($myMatchesName) ; $i++) <div class="user">
       <a href="" class="row">
         <div class="img"><img src="/storage/images/{{ $myMatchesImage[$i] }}" alt=""></div>
         <div>
