@@ -10,6 +10,12 @@
       .btn_hidden {
           visibility: hidden;
       }
+
+      .no_user {
+          position: relative;
+          top: 150px;
+          left: 40px;
+      }
   </style>
 
   @section('content')
@@ -18,19 +24,27 @@
       <nav class="nav">
           <ul>
               <li class="personIcon">
-                  <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x"></i></a></li>
+                  <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user"></i></a>
+              </li>
+              <li class="msgIcon">
+                  <a href="/list"><i class="fas fa-comments"></i></a>
+              </li>
           </ul>
       </nav>
       <div id="tinderslide">
           <ul>
               @foreach($users as $user)
               <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+            <!-- 自分をhomeに表示させないcontinue処理 -->
+             @if($user->id == Auth::id())
+                @continue
+              @endif
               <li data-user_id="{{ $user->id }}">
                   @csrf
                   <!-- 写真 -->
                   <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
-                  <div class="username">{{ $user->name }}{{ $user->age }}</div>
+                  <div class="username">{{ $user->name }} {{ $user->age }}</div>
 
                   <!-- 距離 -->
                   <div class="userdistance">{{ $user->distance }}</div>
@@ -39,8 +53,10 @@
 
                   <div class="like"></div>
                   <div class="dislike"></div>
+
               </li>
               @endforeach
+              <div class="no_user">だれも近くにいません。</div>
           </ul>
       </div>
 
