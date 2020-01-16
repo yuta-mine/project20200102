@@ -19,7 +19,7 @@
             <div id="bio" class="bio">
                 <span class="name">{{ $user->name }}</span>
                 <span class="age">{{ $user->age }}</span>
-                <span class="age">{{ $user->id }}</span>
+                
             </div>
 
             <div class="user-menu">
