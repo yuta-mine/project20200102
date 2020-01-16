@@ -15,15 +15,17 @@
           visibility: hidden;
       }
 
-      <<<<<<< HEAD .text-age {
+      .text-age {
           font-size: 20px;
-
-          =======.no_user {
-              position: relative;
+      }
+       .no_user {
+           position: relative;
               top: 150px;
               left: 40px;
-              >>>>>>>master
           }
+    button{
+        
+    }
   </style>
 
   @section('content')
