@@ -7,17 +7,7 @@
 <html>
 
 <body>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"></script> -->
-    <nav class="nav">
-        <ul>
-            <!-- <li class="personIcon"> -->
-            <!-- <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">{{Auth::id()}}</i></a> -->
-            <!-- <p>{{Auth::id()}}</p> -->
-            <!-- </li> -->
-            <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
-        </ul>
-    </nav>
-    <!-- <img src="/storage/images/{{Auth::user()->img_name}}" alt="user_icon"> -->
+
 
     <div id="chat">
         <div v-for="m in messages">

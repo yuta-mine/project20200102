@@ -40,6 +40,11 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/chat/{id}', function () {
+        return view('chat');
+    });
+});
 
 // Home画面右上のアイコンを押すとマッチ一覧へ
 Route::get('list', 'HomeController@list');
