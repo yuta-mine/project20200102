@@ -15,12 +15,12 @@ class Reaction extends Model
     protected $table = 'like_tables';
 
     // fillableに設定したカラムのみ、create()やfill()、update()などで値が代入される
-    protected $fillable = [
-        'id',
-        'from_user',
-        'to_user',
-        'updated_at',
-        'created_at',
-        'status',
-    ];
+    // protected $fillable = [
+    //     'id',
+    //     'from_user',
+    //     'to_user',
+    //     'updated_at',
+    //     'created_at',
+    //     'status',
+    // ];
 }
