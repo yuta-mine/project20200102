@@ -48,6 +48,7 @@
 
 <body>
     <div id="app">
+
         <nav class="d-flex justify-content-between align-items-center">
             <div></div>
             <a class="user-link" href="/users/show/{{Auth::id()}}">

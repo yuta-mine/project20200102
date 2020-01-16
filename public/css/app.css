@@ -11882,7 +11882,8 @@ body {
 }
 
 .topPage .nav > ul > li.personIcon i {
-  color: #dccbcb;
+  color: gray;
+  font-size:10px;
 }
 
 .topPage .nav > ul > li.appIcon > a {
