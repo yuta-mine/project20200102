@@ -20,7 +20,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     // 下記のルートを追加 ユーザーのセッティング画面に遷移する maru
     Route::get('show/{id}/setting', 'UserController@setting')->name('users.setting');
     // 下記のルートを追加 チャットルームへ移動する suke
-   
+
 
 });
 // まずchat/{id}にmatchtableのidをぶち込む。<=
