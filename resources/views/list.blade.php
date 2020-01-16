@@ -84,13 +84,34 @@
   </div>
 
   <div class="matches">
-    <a href="" class="row">
-      <div class="img"><img src="https://cdn.mainichi.jp/vol1/2019/05/09/20190509mog00m050005000p/11.jpg?2" alt=""></div>
-      <div>
-        <div class="name">さとみ</div>
-        <div class="msg">こんにちはー！</div>
-      </div>
-    </a>
+    <div class="user">
+      <a href="" class="row">
+        <div class="img"><img src="https://cdn.mainichi.jp/vol1/2019/05/09/20190509mog00m050005000p/11.jpg?2" alt=""></div>
+        <div>
+          <div class="name">さとみ</div>
+          <div class="msg">こんにちはー！</div>
+        </div>
+      </a>
+    </div>
+    <div class="user">
+      <a href="" class="row">
+        <div class="img"><img src="https://www.crank-in.net/img/db/1332767_650.jpg" alt=""></div>
+        <div>
+          <div class="name">Mikako</div>
+          <div class="msg">初めまして。</div>
+        </div>
+      </a>
+    </div>
+    <div class="user">
+      <a href="" class="row">
+        <div class="img"><img src="https://www.cinemacafe.net/imgs/thumb_h1/398969.jpg" alt=""></div>
+        <div>
+          <div class="name">かすみ</div>
+          <div class="msg">明日ですか？</div>
+        </div>
+      </a>
+    </div>
+
   </div>
 
 
