@@ -78,15 +78,20 @@
 </head>
 
 <body>
+
   <div class="header">
-    <div><i class="fas fa-comments"></i></div>
+    <!--  -->
+    <div><a href="{{ url('/home') }}"><i class="fas fa-comments"></i></a></div>
+
     <div class="title">Messages</div>
   </div>
+
+
 
   <div class="matches">
     <div class="user">
       <a href="" class="row">
-        <div class="img"><img src="https://cdn.mainichi.jp/vol1/2019/05/09/20190509mog00m050005000p/11.jpg?2" alt=""></div>
+        <div class="img"><img src="https://2xmlabs.com/wp-content/uploads/2018/02/Screenshot_21.png" alt=""></div>
         <div>
           <div class="name">さとみ</div>
           <div class="msg">こんにちはー！</div>

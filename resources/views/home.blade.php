@@ -10,6 +10,12 @@
       .btn_hidden {
           visibility: hidden;
       }
+
+      .no_user {
+          position: relative;
+          top: 150px;
+          left: 40px;
+      }
   </style>
 
   @section('content')
@@ -29,6 +35,10 @@
           <ul>
               @foreach($users as $user)
               <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
+            <!-- 自分をhomeに表示させないcontinue処理 -->
+             @if($user->id == Auth::id())
+                @continue
+              @endif
               <li data-user_id="{{ $user->id }}">
                   @csrf
                   <!-- 写真 -->
@@ -43,8 +53,10 @@
 
                   <div class="like"></div>
                   <div class="dislike"></div>
+
               </li>
               @endforeach
+              <div class="no_user">だれも近くにいません。</div>
           </ul>
       </div>
 
