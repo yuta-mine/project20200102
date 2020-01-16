@@ -7,18 +7,16 @@
 <html>
 
 <body>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"></script> -->
-    <nav class="nav">
-        <ul>
-            <!-- <li class="personIcon"> -->
-            <!-- <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x">{{Auth::id()}}</i></a> -->
-            <!-- <p>{{Auth::id()}}</p> -->
-            <!-- </li> -->
-            <li class="appIcon"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></li>
-        </ul>
-    </nav>
-    <!-- <img src="/storage/images/{{Auth::user()->img_name}}" alt="user_icon"> -->
-
+    <div class="content">
+        <a class="js-modal-open" href=""><i class="fas fa-user"></i></a>
+    </div>
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+            <a href="/users/show/{{Auth::id()}}"></a>
+            <a class="js-modal-close" href="">閉じる</a>
+        </div><!--modal__inner-->
+    </div><!--modal-->
     <div id="chat">
         <div v-for="m in messages">
             <!-- <span v-text="m.created_at"></span>：&nbsp; -->
@@ -33,14 +31,12 @@
                 <div class="icon-box">
                     <img :src="m.img_name" alt="img_icon" width="40px" height="40px" class="icon">
                 </div>
-                <span class="balloon_left" v-text="m.body"></span>
+            <span class="balloon_left" v-text="m.body"></span>
                 <!-- <span class="time_left" v-text="m.created_at"></span> -->
                 <!-- 相手のメッセージ -->
             </div>
 
         </div>
-
-
         <div class="inputWithIcon">
             <input type="text" v-model="message" placeholder="メッセージを入力">
             <!-- <textarea v-model="message"></textarea> -->
@@ -96,15 +92,16 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        $(function() {
-            //ここに自分の処理を追加!
-            const result = document.getElementsByClassName('span.furiwake');
-            console.log(result[0]);
-            console.log(result[1]);
-
-
-
-        });
+$(function(){
+    $('.js-modal-open').on('click',function(){
+        $('.js-modal').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    });
+});
     </script>
 </body>
 
