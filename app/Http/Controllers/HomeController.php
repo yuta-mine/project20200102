@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User; //追加
+use App\Match_table;
 
 class HomeController extends Controller
 {
@@ -34,6 +35,10 @@ class HomeController extends Controller
     }
     public function list()
     {
-        return view('list');
+        $match = Match_table::all();
+        //ddd($match);
+        //$user = User::all();
+        return view('list', ['user' => $user]);
+        //return view('taskedit', ['task' => $task]);
     }
 }

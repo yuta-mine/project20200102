@@ -15,16 +15,15 @@
           visibility: hidden;
       }
 
-<<<<<<< HEAD
-      .text-age {
-          font-size:20px;
-=======
-      .no_user {
-          position: relative;
-          top: 150px;
-          left: 40px;
->>>>>>> master
-      }
+      <<<<<<< HEAD .text-age {
+          font-size: 20px;
+
+          =======.no_user {
+              position: relative;
+              top: 150px;
+              left: 40px;
+              >>>>>>>master
+          }
   </style>
 
   @section('content')
@@ -44,20 +43,17 @@
           <ul>
               @foreach($users as $user)
               <!-- 変数名->テーブルの要素 という書き方で、データベーステーブル内の情報を表示 -->
-            <!-- 自分をhomeに表示させないcontinue処理 -->
-             @if($user->id == Auth::id())
-                @continue
+              <!-- 自分をhomeに表示させないcontinue処理 -->
+              @if($user->id == Auth::id())
+              @continue
               @endif
               <li data-user_id="{{ $user->id }}">
                   @csrf
                   <!-- 写真 -->
                   <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
-<<<<<<< HEAD
+
                   <div class="username">{{ $user->name }} <span class="text-age">{{ $user->age }}<span></div>
-=======
-                  <div class="username">{{ $user->name }} {{ $user->age }}</div>
->>>>>>> master
 
                   <!-- 距離 -->
                   <div class="userdistance">{{ $user->distance }}</div>
@@ -81,6 +77,9 @@
           <a id="likebtn_area" href=" #" class="like">
 
               @foreach($users as $user)
+              @if($user->id == Auth::id())
+              @continue
+              @endif
               <button class="likebtn" value="{{ $user->id }}"><i class="fas fa-heart fa-2x"></i></button>
               @endforeach
 
