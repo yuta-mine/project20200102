@@ -18,6 +18,10 @@ a {
     text-decoration : none;
 }
 
+.top-tag {
+     margin-top: 60px;
+}
+
 .user-info {
     margin-bottom:30px;
 }

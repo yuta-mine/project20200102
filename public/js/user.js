@@ -17,7 +17,7 @@ for (let i = 0; i < target.length; i++){
         let active = document.querySelector('.active');
         let childnode = active.children;
         let text = childnode[0].textContent;
-        console.log(text);
+        //console.log(text);
         buttonElm.innerText = text;
     });
 

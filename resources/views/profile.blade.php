@@ -11,7 +11,7 @@
     <div class="form-group">
 
         <!-- <div>NOT Vue.js</div> -->
-        <div class="user-info arc">
+        <div class="user-info arc top-tag">
             <div class="top-img-area mx-auto">
                 <!-- <img src="{{$user->profile_img_url}}" alt=""> -->
                 <img class="top-img img-thumbnail rounded-circle img-responsive full-width" src="/storage/images/{{$user -> img_name}}" alt="">

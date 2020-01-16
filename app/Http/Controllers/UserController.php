@@ -66,6 +66,19 @@ class UserController extends Controller
             $user->img_name2 = $fileNameToStore;
         }
 
+        if (!is_null($request['img_name3'])) {
+            $imageFile = $request['img_name3'];
+
+            $list = FileUploadServices::fileUpload($imageFile);
+            list($extension, $fileNameToStore, $fileData) = $list;
+
+            $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
+            $image = Image::make($data_url);
+            $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+
+            $user->img_name3 = $fileNameToStore;
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->sex = $request->sex;
