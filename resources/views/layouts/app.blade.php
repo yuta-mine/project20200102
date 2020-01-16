@@ -56,7 +56,6 @@
             <a href="/home">
                 <i class="fas fa-fire"></i>
             </a>
-
         </nav>
 
         <main class="py-4">

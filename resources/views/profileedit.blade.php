@@ -149,6 +149,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
+
         // ロードが終わったら写真登録エリアにchangeイベントをつくる
         window.onload = function() {
             document.querySelectorAll('.upload-photo').forEach(function(elm) {
@@ -160,17 +161,17 @@
                         reader.onload = function(e) {
                             currentNode.nextElementSibling.setAttribute('src', e.target.result);
                             currentNode.nextElementSibling.classList.remove('empty');
-                            labelSet(); //メディアボタンのラベルを更新
+                            mediaBtnlabelSet(); //メディアボタンのラベルを更新
                         };
                         return reader.readAsDataURL(e.target.files[0]);
                     }
                 });
             });
-            labelSet();
+            mediaBtnlabelSet();
         }
 
         // メディアボタンのラベル更新
-        function labelSet() {
+        function mediaBtnlabelSet() {
             let loopSwt = true;
             document.querySelectorAll('.photo-block-item').forEach(function(elm) {
                 //console.log(elm.children[2]);  // 子要素が複数ある場合の指定の方法？
@@ -190,7 +191,7 @@
                 }
             });
         }
-        
+
     </script>
 
 </div>
