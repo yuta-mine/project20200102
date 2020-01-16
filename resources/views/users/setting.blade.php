@@ -5,7 +5,7 @@
 <link href="{{ secure_asset('css/setting.css') }}" rel="stylesheet">
 @endpush
 
-<div class="panel-body">
+<div class="top-tag panel-body">
     <!-- バリデーションエラーの表⽰に使⽤するエラーファイル-->
     <!-- タスク登録フォーム -->
     <form action="{{ route('users.update', $user->id)}}" method="POST" class="formhorizontal">
@@ -55,10 +55,10 @@
                     <label class="" for="">メールアドレス</label>
                     <div class="d-flex justify-content-between">
                         @isset($user->email)
-                            <div id="email" class="form-item">{{ $user->email }}</div>
+                        <div id="email" class="form-item">{{ $user->email }}</div>
                         @endisset
                         @empty($user->email)
-                            <div id="email" class="form-item">いますぐ認証する</div>
+                        <div id="email" class="form-item">いますぐ認証する</div>
                         @endempty
                         <a class="next-icon" href="#carouselExampleIndicators" role="button" data-slide="next">
                             <i class="fas fa-angle-right"></i>
@@ -150,5 +150,14 @@
             </div>
         </div> -->
     </form>
+
+    <div class="form-control" aria-labelledby="navbarDropdown">
+        <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
 </div>
 @endsection

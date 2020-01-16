@@ -58,6 +58,8 @@
         },
 
         next: function () {
+            currentKikeBtn = document.getElementById('likebtn_area').lastElementChild;  //現在のLikeボタンのDOM取得
+            currentKikeBtn.parentNode.removeChild(currentKikeBtn);
             return this.showPane(current_pane - 1);
         },
 
