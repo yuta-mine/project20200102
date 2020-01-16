@@ -89,7 +89,6 @@
 
 
   <div class="matches">
-    <div>{{ $user }}</div>
     <div class="user">
       <a href="" class="row">
         <div class="img"><img src="https://2xmlabs.com/wp-content/uploads/2018/02/Screenshot_21.png" alt=""></div>
