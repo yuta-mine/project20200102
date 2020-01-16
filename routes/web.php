@@ -24,7 +24,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}/setting', 'UserController@setting')->name('users.setting');
     // 下記のルートを追加 チャットルームへ移動する suke
 
-    Route::get('chat/{id}', 'ChatController@chat')->name('users.chatroom');
+    // Route::get('chat/{id}', 'ChatController@chat')->name('users.chatroom');
 
 
 });
@@ -40,6 +40,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/chat/{id}', function () {
         return view('chat');
