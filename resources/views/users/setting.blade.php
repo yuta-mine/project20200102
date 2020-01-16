@@ -143,15 +143,6 @@
             </div>
         </div>
 
-        <div class="" aria-labelledby="navbarDropdown">
-            <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </div>
-
         <!-- タスク登録ボタン -->
         <!-- <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
@@ -159,5 +150,14 @@
             </div>
         </div> -->
     </form>
+
+    <div class="form-control" aria-labelledby="navbarDropdown">
+        <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
 </div>
 @endsection
