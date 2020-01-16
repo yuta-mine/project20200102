@@ -36,6 +36,9 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Home画面右上のアイコンを押すとマッチ一覧へ
+Route::get('list', 'HomeController@list');
+
 
 
 //likeしたidをReactionControllerのcreateメソッドに送信 mine

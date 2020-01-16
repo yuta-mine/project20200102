@@ -18,7 +18,11 @@
       <nav class="nav">
           <ul>
               <li class="personIcon">
-                  <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x"></i></a></li>
+                  <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user"></i></a>
+              </li>
+              <li class="msgIcon">
+                  <a href="/list"><i class="fas fa-comments"></i></a>
+              </li>
           </ul>
       </nav>
       <div id="tinderslide">
@@ -30,7 +34,7 @@
                   <!-- 写真 -->
                   <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
-                  <div class="username">{{ $user->name }}{{ $user->age }}</div>
+                  <div class="username">{{ $user->name }} {{ $user->age }}</div>
 
                   <!-- 距離 -->
                   <div class="userdistance">{{ $user->distance }}</div>

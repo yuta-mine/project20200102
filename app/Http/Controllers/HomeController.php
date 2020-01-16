@@ -32,4 +32,8 @@ class HomeController extends Controller
         return view('home', compact('users')); //追加
 
     }
+    public function list()
+    {
+        return view('list');
+    }
 }
