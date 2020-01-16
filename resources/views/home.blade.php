@@ -15,15 +15,16 @@
           visibility: hidden;
       }
 
-      <<<<<<< HEAD .text-age {
+      .text-age {
           font-size: 20px;
+      }
 
-          =======.no_user {
-              position: relative;
-              top: 150px;
-              left: 40px;
-              >>>>>>>master
-          }
+    .no_user {
+        position: relative;
+        top: 150px;
+        left: 40px;
+        
+    }
   </style>
 
   @section('content')
@@ -53,7 +54,7 @@
                   <img src="/storage/images/{{ $user->img_name }}">
                   <!-- 名前 -->
 
-                  <div class="username">{{ $user->name }} <span class="text-age">{{ $user->age }}<span> {{ $user->id}}</div>
+                  <div class="username">{{ $user->name }} <span class="text-age">{{ $user->age }}</span></div>
 
                   <!-- 距離 -->
                   <div class="userdistance">{{ $user->distance }}</div>

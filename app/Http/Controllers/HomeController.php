@@ -8,6 +8,7 @@ use App\User; //追加
 use App\Match_table;
 use Auth;
 use Log;
+use DB;
 
 class HomeController extends Controller
 {
@@ -37,25 +38,41 @@ class HomeController extends Controller
     }
     public function list()
     {
-        //$match = Match_table::all();
-        $myMatchesName = array();
-        $myMatchesImage = array();
-        $matchesAll = Match_table::all()->where('from_user', Auth::user()->id);
-        foreach ($matchesAll as $record){
-            $toUserId = $record->to_user;
-            $toUserRecord = User::Find($toUserId);
-            array_push($myMatchesName, $toUserRecord->name);
-            array_push($myMatchesImage, $toUserRecord->img_name);
+        $matchUserIDs = array();
+        $matchUserNames = array();
+        $matchUserImages = array();
+
+        $checkExistsFromUser = DB::table('match_tables')->where('from_user', Auth::user()->id)->exists();
+
+        if($checkExistsFromUser){
+            // 自分がfrom_userカラムにいたら相手をto_userからさがす
+            $matchesAll = Match_table::all()->where('from_user', Auth::user()->id);
+            foreach ($matchesAll as $record) {
+                $targetUserId = $record->to_user;
+                $targetUserRecord = User::Find($targetUserId);
+                array_push($matchUserIDs, $targetUserId);
+                array_push($matchUserNames, $targetUserRecord->name);
+                array_push($matchUserImages, $targetUserRecord->img_name);
+            }
+        } elseif(!$checkExistsFromUser){
+            // いなかったら自分をto_userからさがし、相手をfrom_userからさがす
+            $matchesAll = Match_table::all()->where('to_user', Auth::user()->id);
+            foreach ($matchesAll as $record) {
+                $targetUserId = $record->from_user;
+                $targetUserRecord = User::Find($targetUserId);
+                array_push($matchUserIDs, $targetUserId);
+                array_push($matchUserNames, $targetUserRecord->name);
+                array_push($matchUserImages, $targetUserRecord->img_name);
+            }
+        } else {
+            echo 'ERROR at HomeController@list ';
         }
-        
-        //$myMatches = array($myMatchesName, $myMatchesImage);
-        Log::debug($myMatchesName);
-        Log::debug($myMatchesImage);
-        //ddd($myMatches[0][1]);
-        // $data = $users->where('id', '>', 5)->get();
-        //ddd($match);
-        //$user = User::all();
-        return view('list',['myMatchesName' => $myMatchesName, 'myMatchesImage' => $myMatchesImage]);
+
+        return view('list',[
+            'matchUserIDs' => $matchUserIDs, 
+            'matchUserNames' => $matchUserNames, 
+            'matchUserImages' => $matchUserImages
+        ]);
         //return view('list');
         
     }
