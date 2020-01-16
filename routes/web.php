@@ -42,7 +42,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/chat/{id}', function () {
+    Route::get('/chat/{match_id}', function () {
         return view('chat');
     });
 });

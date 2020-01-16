@@ -37,7 +37,7 @@ class HomeController extends Controller
     }
     public function list()
     {
-        //$match = Match_table::all();
+        $match = Match_table::all();
         $myMatchesName = array();
         $myMatchesImage = array();
         $matchesAll = Match_table::all()->where('from_user', Auth::user()->id);
@@ -47,16 +47,20 @@ class HomeController extends Controller
             array_push($myMatchesName, $toUserRecord->name);
             array_push($myMatchesImage, $toUserRecord->img_name);
         }
-        
+
+        $matchIds = Match_table::all()->where
+        ('from_user',Auth::user()->id)->values
+        ('id')[0]->id;
+        // ddd($matchIds);
         //$myMatches = array($myMatchesName, $myMatchesImage);
-        Log::debug($myMatchesName);
-        Log::debug($myMatchesImage);
+        // Log::debug($myMatchesName);
+        // Log::debug($myMatchesImage);
         //ddd($myMatches[0][1]);
         // $data = $users->where('id', '>', 5)->get();
         //ddd($match);
         //$user = User::all();
-        return view('list',['myMatchesName' => $myMatchesName, 'myMatchesImage' => $myMatchesImage]);
+        return view('list',['matchIds' => $matchIds,'myMatchesName' => $myMatchesName, 'myMatchesImage' => $myMatchesImage],);
         //return view('list');
-        
+
     }
 }
