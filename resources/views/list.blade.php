@@ -98,6 +98,7 @@
           </div>
         </a>
   </div>
+  </div>
   @endfor
 
 
