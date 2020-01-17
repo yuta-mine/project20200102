@@ -92,7 +92,7 @@
         @for ($i = 0; $i < count($myMatchesName) ; $i++) <div class="user">
 
          
-            <a href="" class="row">
+            <div class="row">
                 <div class="img">
                     <a href="chat/{{ $matchIds }}">
                         <img src="/storage/images/{{ $myMatchesImage[$i] }}" alt="">
@@ -103,7 +103,7 @@
                     <div class="name">{{ $myMatchesName[$i] }}</div>
                     <div class="msg">こんにちはー！</div>
                 </div>
-            </a>
+      </div>
     </div>
     @endfor
 
