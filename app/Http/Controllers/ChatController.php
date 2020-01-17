@@ -28,7 +28,7 @@ class ChatController extends Controller
         // ログインしてるユーザー取得
         // $currentUserId = User::where('id', Auth::user()->id)->get();
         // $likedUserId = Match_table::exists('to_user', )
-        
+
     //     if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
     //         return redirect()->intended('home');
     //     }

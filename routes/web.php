@@ -14,6 +14,7 @@
 // 'middleware' => 'auth' と表記することで、認証済みかどうかを判定
 
 use App\Http\Controllers\Ajax\ChatController;
+use App\Match_table;
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UserController@show')->name('users.show');
