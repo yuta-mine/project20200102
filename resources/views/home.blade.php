@@ -2,8 +2,9 @@
   <style>
       .dislikebtn {
           position: absolute;
-          color: gray;
-          background-color: skyblue;
+          color: transparent;
+          background-color: transparent;
+          border: none;
       }
 
       .likebtn {
@@ -18,6 +19,7 @@
       .text-age {
           font-size: 20px;
       }
+<<<<<<< HEAD
 
     .no_user {
         position: relative;
@@ -25,6 +27,18 @@
         left: 40px;
         
     }
+=======
+
+      .no_user {
+          position: relative;
+          top: 150px;
+          left: 40px;
+      }
+
+      .dislike {
+          text-decoration: none;
+      }
+>>>>>>> master
   </style>
 
   @section('content')

@@ -38,6 +38,7 @@ class HomeController extends Controller
     }
     public function list()
     {
+<<<<<<< HEAD
         $matchUserIDs = array();
         $matchIDs = array();
         $matchUserNames = array();
@@ -82,7 +83,32 @@ class HomeController extends Controller
             'matchUserNames' => $matchUserNames, 
             'matchUserImages' => $matchUserImages
         ]);
+=======
+        $match = Match_table::all();
+        $myMatchesName = array();
+        $myMatchesImage = array();
+        $matchesAll = Match_table::all()->where('from_user', Auth::user()->id);
+        foreach ($matchesAll as $record){
+            $toUserId = $record->to_user;
+            $toUserRecord = User::Find($toUserId);
+            array_push($myMatchesName, $toUserRecord->name);
+            array_push($myMatchesImage, $toUserRecord->img_name);
+        }
+
+        $matchIds = Match_table::all()->where
+        ('from_user',Auth::user()->id)->values
+        ('id')[0]->id;
+        // ddd($matchIds);
+        //$myMatches = array($myMatchesName, $myMatchesImage);
+        // Log::debug($myMatchesName);
+        // Log::debug($myMatchesImage);
+        //ddd($myMatches[0][1]);
+        // $data = $users->where('id', '>', 5)->get();
+        //ddd($match);
+        //$user = User::all();
+        return view('list',['matchIds' => $matchIds,'myMatchesName' => $myMatchesName, 'myMatchesImage' => $myMatchesImage],);
+>>>>>>> master
         //return view('list');
-        
+
     }
 }

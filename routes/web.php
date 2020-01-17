@@ -12,6 +12,10 @@
 */
 
 // 'middleware' => 'auth' と表記することで、認証済みかどうかを判定
+
+use App\Http\Controllers\Ajax\ChatController;
+use App\Match_table;
+
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UserController@show')->name('users.show');
     Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
@@ -20,6 +24,8 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     // 下記のルートを追加 ユーザーのセッティング画面に遷移する maru
     Route::get('show/{id}/setting', 'UserController@setting')->name('users.setting');
     // 下記のルートを追加 チャットルームへ移動する suke
+
+    // Route::get('chat/{id}', 'ChatController@chat')->name('users.chatroom');
 
 
 });
@@ -41,6 +47,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/chat/{match_id}', function () {
+        return view('chat');
+    });
+});
 
 // Home画面右上のアイコンを押すとマッチ一覧へ
 Route::get('list', 'HomeController@list');
